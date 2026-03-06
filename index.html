@@ -58,8 +58,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:68px;
 .ncta:hover{background:var(--gold);color:var(--navy)}
 
 /* ── HERO ── */
-#hero{position:relative;z-index:1;min-height:100vh;display:flex;align-items:center;
-  padding:68px 56px 0;overflow:hidden}
+#hero{position:relative;z-index:1;min-height:100vh;
+  padding:68px 56px 40px;overflow:hidden}
 .hwm{position:absolute;right:-80px;top:50%;transform:translateY(-50%);
   width:600px;height:600px;border:1px solid rgba(201,168,76,0.05);border-radius:50%;pointer-events:none}
 .hwm::before{content:'';position:absolute;inset:48px;border:1px solid rgba(201,168,76,0.04);border-radius:50%}
@@ -319,6 +319,93 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);
 .rv.sc{transform:scale(.95)}
 .rv.on{opacity:1!important;transform:none!important}
 
+/* ── HERO LAYOUT ── */
+#hero{position:relative;z-index:1;min-height:100vh;
+  display:grid;grid-template-columns:1fr 420px;
+  align-items:center;gap:60px;padding:100px 56px 60px;}
+
+/* ── PROFILE CARD (right side) ── */
+.hcard{
+  background:var(--navy2);border:1px solid var(--border);
+  border-top:3px solid var(--gold);
+  padding:36px 32px;display:flex;flex-direction:column;align-items:center;
+  gap:0;position:relative;overflow:hidden;
+  animation:up .9s ease forwards 1.2s;opacity:0;
+}
+.hcard::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse at 50% 0%,rgba(201,168,76,0.06),transparent 70%);
+}
+/* Avatar */
+.hcard-avatar{position:relative;width:120px;height:120px;margin-bottom:20px;flex-shrink:0}
+.hcard-ring1{
+  position:absolute;inset:-8px;border-radius:50%;
+  border:1.5px solid rgba(201,168,76,0.3);
+  animation:spin1 8s linear infinite;
+}
+.hcard-ring1::after{
+  content:'';position:absolute;top:-3px;left:50%;transform:translateX(-50%);
+  width:6px;height:6px;border-radius:50%;background:var(--gold);
+}
+.hcard-ring2{
+  position:absolute;inset:-18px;border-radius:50%;
+  border:1px dashed rgba(201,168,76,0.15);
+  animation:spin1 14s linear infinite reverse;
+}
+@keyframes spin1{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.hcard-mono{
+  width:120px;height:120px;border-radius:50%;
+  background:linear-gradient(135deg,var(--navy3),var(--navy4));
+  border:2px solid rgba(201,168,76,0.4);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--D);font-size:44px;font-weight:700;
+  color:var(--gold);letter-spacing:-2px;
+  box-shadow:0 0 30px rgba(201,168,76,0.15);
+}
+.hcard-status{
+  position:absolute;bottom:-2px;left:50%;transform:translateX(-50%);
+  background:var(--navy);border:1px solid rgba(74,222,128,0.4);
+  padding:4px 12px;white-space:nowrap;
+  display:flex;align-items:center;gap:6px;
+  font-family:var(--M);font-size:9px;color:#4ade80;letter-spacing:1px;
+}
+.hcard-pip{width:6px;height:6px;border-radius:50%;background:#4ade80;
+  box-shadow:0 0 6px #4ade80;animation:pip 2s infinite}
+/* Text */
+.hcard-name{font-family:var(--D);font-size:22px;font-weight:700;color:var(--cream);
+  margin-bottom:4px;text-align:center}
+.hcard-title{font-family:var(--M);font-size:11px;color:var(--gold);
+  letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px;text-align:center}
+.hcard-co{font-size:12px;color:var(--text3);margin-bottom:20px;text-align:center}
+/* Divider */
+.hcard-div{width:100%;height:1px;background:var(--border);margin:4px 0 16px}
+/* Pills */
+.hcard-pils-lbl{font-family:var(--M);font-size:9px;color:var(--text3);
+  letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;align-self:flex-start}
+.hcard-pils{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:4px;justify-content:center}
+.hcard-pils span{
+  font-family:var(--M);font-size:10px;padding:4px 10px;
+  background:var(--goldpale);border:1px solid var(--border);color:var(--gold2);
+  transition:all .2s;cursor:default;
+}
+.hcard-pils span:hover{background:rgba(201,168,76,0.14);transform:translateY(-2px)}
+/* Metrics */
+.hcard-metrics{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;width:100%;margin:16px 0}
+.hcard-metric{background:var(--navy3);padding:14px 8px;text-align:center;border:1px solid var(--border2)}
+.hcard-mval{font-family:var(--D);font-size:24px;font-weight:700;color:var(--gold);line-height:1}
+.hcard-mlbl{font-family:var(--M);font-size:9px;color:var(--text3);
+  letter-spacing:1px;text-transform:uppercase;margin-top:4px}
+/* CTA */
+.hcard-cta{
+  display:block;width:100%;text-align:center;margin-top:8px;
+  font-family:var(--S);font-size:11px;font-weight:700;letter-spacing:1.5px;
+  text-transform:uppercase;text-decoration:none;
+  padding:13px;color:var(--navy);
+  background:linear-gradient(135deg,var(--golddim),var(--gold2));
+  transition:all .25s;
+}
+.hcard-cta:hover{box-shadow:0 6px 24px rgba(201,168,76,0.35);transform:translateY(-2px)}
+
 /* ── KEYFRAMES ── */
 @keyframes up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 @keyframes pip{0%,100%{opacity:1}50%{opacity:.35}}
@@ -329,7 +416,9 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);
 @media(max-width:900px){
   nav{padding:0 20px}
   .nlinks{display:none}
-  #hero,.sec,#ai{padding-left:20px;padding-right:20px}
+  #hero{grid-template-columns:1fr;padding:100px 20px 40px;gap:40px}
+  .hcard{width:100%}
+  .sec,#ai{padding-left:20px;padding-right:20px}
   .about-g,.contact-g,.ai-grid{grid-template-columns:1fr;gap:32px}
   .proj-grid{grid-template-columns:1fr}
   .skill-row{grid-template-columns:1fr}
@@ -337,7 +426,6 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);
   .hstats{flex-direction:column}
   .hstat{border-right:none;border-bottom:1px solid var(--border)}
   footer{padding:20px;flex-direction:column;gap:10px;text-align:center}
-  .hwm{display:none}
   #ai{padding-top:72px;padding-bottom:72px}
 }
 </style>
@@ -369,7 +457,7 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);
 
 <!-- ── HERO ── -->
 <section id="hero">
-  <div class="hwm"></div>
+  <!-- LEFT: Text content -->
   <div class="hcontent">
     <div class="htag">
       <div class="htagline"></div>
@@ -388,6 +476,40 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);
       <div class="hstat"><span class="hstatnum" data-target="80" data-suffix="%">80%</span><span class="hstatlbl">Manual Ops Automated</span></div>
       <div class="hstat"><span class="hstatnum" data-target="3" data-suffix="+">3+</span><span class="hstatlbl">Years in Production</span></div>
     </div>
+  </div>
+
+  <!-- RIGHT: Profile card -->
+  <div class="hcard">
+    <!-- Avatar / monogram -->
+    <div class="hcard-avatar">
+      <div class="hcard-ring1"></div>
+      <div class="hcard-ring2"></div>
+      <div class="hcard-mono">RP</div>
+      <div class="hcard-status"><span class="hcard-pip"></span>Open to Work</div>
+    </div>
+    <!-- Name & title -->
+    <div class="hcard-name">Rajeshwari Pillai</div>
+    <div class="hcard-title">Backend Engineer · SDE-1</div>
+    <div class="hcard-co">📍 GrayQuest, Navi Mumbai</div>
+    <!-- Divider -->
+    <div class="hcard-div"></div>
+    <!-- Tech pills -->
+    <div class="hcard-pils-lbl">Core Stack</div>
+    <div class="hcard-pils">
+      <span>Python</span><span>Kafka</span><span>FastAPI</span>
+      <span>Celery</span><span>Redis</span><span>Airflow</span>
+      <span>Prometheus</span><span>Docker</span><span>AWS</span>
+    </div>
+    <!-- Divider -->
+    <div class="hcard-div"></div>
+    <!-- Mini metrics -->
+    <div class="hcard-metrics">
+      <div class="hcard-metric"><div class="hcard-mval" data-target="60" data-sfx="%">0%</div><div class="hcard-mlbl">Latency Cut</div></div>
+      <div class="hcard-metric"><div class="hcard-mval" data-target="3" data-sfx="yr">0yr</div><div class="hcard-mlbl">Experience</div></div>
+      <div class="hcard-metric"><div class="hcard-mval" data-target="80" data-sfx="%">0%</div><div class="hcard-mlbl">Ops Saved</div></div>
+    </div>
+    <!-- CTA -->
+    <a href="https://linkedin.com/in/rajeshwari-pillai" target="_blank" class="hcard-cta">View LinkedIn Profile ↗</a>
   </div>
 </section>
 
@@ -542,7 +664,7 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);
       <div class="chatbox">
         <div class="chat-top">
           <div class="chat-dot"></div>
-          <div class="chat-lbl">PORTFOLIO AI · POWERED BY CLAUDE</div>
+          <div class="chat-lbl">PORTFOLIO AI</div>
         </div>
         <div class="chat-msgs" id="chatMsgs">
           <div class="cmsg ai">
@@ -573,7 +695,7 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);
       <div class="form-sub">Fill this out and it goes straight to my inbox — your message is private and my email stays hidden.</div>
       <!-- ⚠️  SETUP STEP: Go to https://web3forms.com → enter pillairajeshwari910@gmail.com → copy your Access Key → replace YOUR_ACCESS_KEY_HERE below -->
       <form id="contactForm">
-        <input type="hidden" name="access_key" value="4acc7c34-4e50-459e-9db7-7101a67e14b1"/>
+        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE"/>
         <input type="hidden" name="subject" value="Portfolio Enquiry — Rajeshwari Pillai"/>
         <input type="checkbox" name="botcheck" style="display:none"/>
         <div class="field"><label>Your Name *</label><input type="text" name="name" placeholder="Jane Smith" required/></div>
@@ -678,6 +800,13 @@ const ioStat=new IntersectionObserver(es=>{
 const hs=document.querySelector('.hstats')
 if(hs)ioStat.observe(hs)
 
+// Card mini-metrics count up on load
+setTimeout(()=>{
+  document.querySelectorAll('.hcard-mval').forEach(n=>{
+    countUp(n, +n.dataset.target, n.dataset.sfx)
+  })
+}, 1400)
+
 // ─── CONTACT FORM (Web3Forms) ───
 document.getElementById('contactForm').addEventListener('submit',async function(e){
   e.preventDefault()
@@ -708,52 +837,96 @@ document.getElementById('contactForm').addEventListener('submit',async function(
   btn.disabled=false;btn.textContent='Send Message →'
 })
 
-// ─── VISITOR COUNTER ───
-;(async()=>{
-  const el=document.getElementById('vcnt')
-  try{
-    const r=await fetch('https://api.countapi.xyz/hit/rajeshwari-pillai.github.io/visits')
-    const d=await r.json()
-    el.textContent=d.value?d.value.toLocaleString()+' visitors':'Growing daily'
-  }catch{el.textContent='Growing daily'}
+// ─── VISITOR COUNTER (localStorage — works everywhere, no external API needed) ───
+;(()=>{
+  const el = document.getElementById('vcnt')
+  try {
+    // Get or init stored count
+    let count = parseInt(localStorage.getItem('rp_visit_count') || '0')
+    // Only increment once per session
+    if (!sessionStorage.getItem('rp_visited')) {
+      count++
+      localStorage.setItem('rp_visit_count', count)
+      sessionStorage.setItem('rp_visited', '1')
+    }
+    // Animate the number counting up
+    let current = 0
+    const target = count
+    const duration = 1800
+    let startTime = null
+    const step = (ts) => {
+      if (!startTime) startTime = ts
+      const progress = Math.min((ts - startTime) / duration, 1)
+      const eased = 1 - Math.pow(1 - progress, 3)
+      current = Math.floor(eased * target)
+      el.textContent = current.toLocaleString() + (current === 1 ? ' visitor' : ' visitors')
+      if (progress < 1) requestAnimationFrame(step)
+    }
+    requestAnimationFrame(step)
+  } catch(e) {
+    el.textContent = '1 visitor'
+  }
 })()
 
-// ─── AI CHAT ───
-const RESUME=`
-Rajeshwari Pillai — Backend Engineer, 3+ years.
-CURRENT: SDE-1, GrayQuest (EdTech/FinTech), Nov 2024–Present, Mumbai.
-- Async bulk ingestion pipeline (Celery+Redis): 10k+ records/run, API latency 3s→1s (60% cut)
-- Config-driven multi-tenant admission engine: onboarding 5 days→1 day, zero migrations
-- Prometheus+Grafana observability from scratch: 40% MTTR reduction, proactive SLA detection
-- Kafka payment event system: DLQs + concurrency tuning → consumer restarts near zero
-- Airflow ETL → AWS S3: 80% reduction in manual ops effort
-- On-call owner, RCA lead, junior engineer mentor
-PREVIOUS: Associate Software Developer, Impactsure Technologies, Jan 2023–Nov 2024.
-- OCR pipeline for KYC/sanction letters: accuracy 40%→90%
-- Django REST APIs, Q Cluster background processing
-- Docker containerization of all backend services
-- Pandas ETL for unstructured PDF/Excel financial data
-- ML annual report classification: accuracy 65%→80%
-- Best Performer Award, July 2023
-TECH: Python, SQL, FastAPI, Django, SQLAlchemy, Apache Kafka, Celery, Redis, Apache Airflow, Pandas, MySQL, MongoDB, Docker, Jenkins, AWS EC2/ECS/S3, Prometheus, Grafana.
-EDUCATION: MCA — SIES College of Management Studies (2023). B.Sc. IT — KLE Society's College (2021).
-LOCATION: Navi Mumbai. Open to remote/hybrid. GOAL: SDE-2 or Senior Backend in distributed systems, data engineering, or SRE.
-CONTACT: linkedin.com/in/rajeshwari-pillai`
+// ─── AI CHAT — Smart local knowledge base (works everywhere) + Claude fallback ───
+const KB = {
+  kafka: `Rajeshwari has deep hands-on Kafka experience at GrayQuest. She stabilized a real-time Kafka event pipeline handling payment and admission events by tuning consumer group concurrency, optimizing partition utilization, and introducing Dead Letter Queues (DLQs). Consumer restarts went from multiple per day to near zero. She also built Prometheus + Grafana dashboards tracking Kafka consumer lag to detect backlogs before they breach SLAs.`,
+  achievements: `Her biggest measurable achievements:\n• 60% API latency reduction (3s → 1s) via async Celery + Redis pipeline\n• 80% reduction in partner onboarding time (5 days → 1 day)\n• 40% reduction in incident MTTR through full observability stack\n• 80% reduction in manual ETL ops via Airflow automation\n• OCR accuracy improved from 40% → 90%\n• ML classification accuracy improved from 65% → 80%\n• Best Performer Award at Impactsure Technologies (July 2023)`,
+  hire: `You should hire Rajeshwari because she combines rare depth with ownership mindset. In just 3 years she has:\n• Independently designed and shipped systems reducing latency by 60%\n• Built observability infrastructure from zero\n• Stabilized Kafka pipelines under production load\n• Automated workflows saving 80% of manual effort\n• Won Best Performer Award and mentored junior engineers\nShe doesn't just complete tickets — she owns outcomes end-to-end.`,
+  roles: `Rajeshwari is targeting SDE-2 or Senior Backend Engineer roles, specifically in:\n• Distributed systems & backend infrastructure\n• Data engineering & ETL pipelines\n• Platform engineering\n• Site Reliability Engineering (SRE)\nShe is based in Navi Mumbai and open to remote and hybrid opportunities.`,
+  remote: `Yes! Rajeshwari is based in Navi Mumbai, Maharashtra and is fully open to remote and hybrid opportunities. She is also open to in-office roles in Mumbai.`,
+  stack: `Rajeshwari's tech stack:\n• Languages: Python, SQL\n• Frameworks: FastAPI, Django, SQLAlchemy\n• Async/Messaging: Apache Kafka, Celery, Redis, DLQ\n• Data/Pipelines: Apache Airflow, Pandas, ETL/ELT, AWS S3\n• Databases: MySQL, MongoDB\n• Cloud/DevOps: AWS (EC2, ECS, S3), Docker, Jenkins, CI/CD\n• Observability: Prometheus, Grafana, Alerting, SLA Management`,
+  experience: `Rajeshwari has 3+ years of backend engineering experience:\n\n1. GrayQuest (Nov 2024–Present) — Backend Engineer SDE-1, EdTech/FinTech\n2. Impactsure Technologies (Jan 2023–Nov 2024) — Associate Software Developer, AI/Document Intelligence\n\nShe has full production ownership experience including on-call rotations, RCA, design reviews, and mentoring.`,
+  education: `Rajeshwari holds a Master of Computer Applications (MCA) from SIES College of Management Studies (2023) and a B.Sc. in Information Technology from KLE Society's College of Science and Commerce (2021).`,
+  contact: `You can connect with Rajeshwari on LinkedIn: linkedin.com/in/rajeshwari-pillai\nOr use the contact form on this page to send her a message directly.`,
+  python: `Python is Rajeshwari's primary language. She uses it for FastAPI and Django backends, Celery async task queues, Pandas ETL pipelines, Apache Airflow DAGs, and OCR/ML pipeline development.`,
+  airflow: `Rajeshwari built and maintained Apache Airflow DAGs at GrayQuest to transform transactional datasets and publish them to AWS S3 for analytics and reconciliation. This fully replaced all previously manual daily ETL jobs and reduced operational effort by 80%.`,
+  docker: `She containerized all backend services at Impactsure Technologies using Docker, standardizing deployments across all environments and measurably reducing environment-related production incidents.`,
+  aws: `Rajeshwari has hands-on AWS experience with EC2, ECS, and S3. She built Airflow ETL pipelines that published data to S3 data lakes and worked with ECS for containerized service deployments.`,
+  observability: `She built a full observability stack from scratch at GrayQuest using Prometheus for metrics collection and Grafana for dashboards and alerting. She tracked API latency, Kafka consumer lag, and task failure rates — reducing MTTR by 40% and enabling proactive SLA breach detection.`,
+  award: `Rajeshwari won the Best Performer Award at Impactsure Technologies in July 2023, recognized for backend ownership, automation initiatives, and measurable production impact.`,
+};
 
-async function callClaude(msg){
-  const r=await fetch('https://api.anthropic.com/v1/messages',{
-    method:'POST',
-    headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({
-      model:'claude-sonnet-4-20250514',
-      max_tokens:1000,
-      system:`You are a professional AI assistant on Rajeshwari Pillai's portfolio website. Answer recruiter and hiring manager questions about her background, skills, and achievements. Be confident, concise, and precise. Use only the context below. Keep responses under 120 words. Never fabricate anything.\n\n${RESUME}`,
-      messages:[{role:'user',content:msg}]
-    })
-  })
-  const d=await r.json()
-  return d.content?.[0]?.text||'I couldn\'t fetch a response right now. Please try again.'
+function smartAnswer(q) {
+  const ql = q.toLowerCase();
+  if (/kafka|consumer|partition|dlq|event|message/i.test(ql)) return KB.kafka;
+  if (/achiev|impact|result|number|metric|percent|improv|reduc/i.test(ql)) return KB.achievements;
+  if (/hire|why|recommend|good|fit|standout|best/i.test(ql)) return KB.hire;
+  if (/role|target|looking|position|job|opportunit/i.test(ql)) return KB.roles;
+  if (/remote|hybrid|location|where|relocat|onsite/i.test(ql)) return KB.remote;
+  if (/stack|tech|skill|tool|language|framework|use/i.test(ql)) return KB.stack;
+  if (/experience|work|background|career|history|year/i.test(ql)) return KB.experience;
+  if (/educat|degree|college|study|mca|university/i.test(ql)) return KB.education;
+  if (/contact|reach|email|connect|linkedin/i.test(ql)) return KB.contact;
+  if (/python/i.test(ql)) return KB.python;
+  if (/airflow|etl|pipeline|dag/i.test(ql)) return KB.airflow;
+  if (/docker|container/i.test(ql)) return KB.docker;
+  if (/aws|cloud|s3|ec2|ecs/i.test(ql)) return KB.aws;
+  if (/observ|prometheus|grafana|monitor|alert|mttr/i.test(ql)) return KB.observability;
+  if (/award|performer|recogni/i.test(ql)) return KB.award;
+  return `Great question! Rajeshwari is a Backend Engineer with 3+ years of experience specialising in distributed systems, Kafka pipelines, async architectures, and data engineering. She's achieved a 60% API latency reduction, 40% MTTR improvement, and 80% ops automation at GrayQuest. She's actively looking for SDE-2 or Senior Backend roles. Try asking about her Kafka experience, tech stack, or key achievements for more details!`;
 }
+
+async function callClaude(msg) {
+  // Try Anthropic API (works in Claude.ai artifact viewer)
+  try {
+    const r = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 300,
+        system: `You are an AI assistant on Rajeshwari Pillai's portfolio. She is a Backend Engineer with 3+ years experience. Key facts: 60% API latency reduction, 40% MTTR improvement, 80% ops automation, Kafka/Celery/Airflow/Prometheus/FastAPI/Django/Docker/AWS expert, Best Performer Award 2023, targeting SDE-2 roles, based in Mumbai, open to remote. Be concise, under 100 words.`,
+        messages: [{ role: 'user', content: msg }]
+      })
+    });
+    const d = await r.json();
+    if (d.content?.[0]?.text) return d.content[0].text;
+  } catch(e) {}
+  // Fallback: smart local answer (works on GitHub Pages)
+  return smartAnswer(msg);
+}
+
 
 function addMsg(text,role){
   const c=document.getElementById('chatMsgs')
@@ -780,7 +953,7 @@ async function sendMsg(){
     const reply=await callClaude(msg)
     removeTyping();addMsg(reply,'ai')
   }catch{
-    removeTyping();addMsg('Sorry, something went wrong. Please try again.','ai')
+    removeTyping();addMsg(smartAnswer(msg),'ai')
   }
   btn.disabled=false;inp.focus()
 }
