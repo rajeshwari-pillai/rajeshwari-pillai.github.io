@@ -4,435 +4,322 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Rajeshwari Pillai — Backend Engineer</title>
-<meta name="description" content="Backend Engineer with 3+ years building distributed systems, Kafka pipelines, and async architectures. Based in Mumbai."/>
+<meta name="description" content="Backend Engineer, 3+ years. Distributed systems, Kafka, async pipelines. Navi Mumbai."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
-:root {
-  --navy:     #080f1c;
-  --navy2:    #0c1525;
-  --navy3:    #10192e;
-  --navy4:    #152038;
-  --gold:     #c9a84c;
-  --gold2:    #e2c472;
-  --gold3:    #f5d98a;
-  --golddim:  #7a6128;
-  --goldpale: rgba(201,168,76,0.07);
-  --cream:    #f0e8d5;
-  --text:     #c8d8e8;
-  --text2:    #7a92aa;
-  --text3:    #3d5570;
-  --border:   rgba(201,168,76,0.15);
-  --border2:  rgba(201,168,76,0.07);
-  --D: 'Cormorant Garamond', Georgia, serif;
-  --S: 'Outfit', sans-serif;
-  --M: 'DM Mono', monospace;
+:root{
+  --navy:#080f1c;--navy2:#0c1525;--navy3:#10192e;--navy4:#152038;
+  --gold:#c9a84c;--gold2:#e2c472;--gold3:#f5d98a;--gdim:#7a6128;
+  --gpale:rgba(201,168,76,0.07);--cream:#f0e8d5;
+  --t:#c8d8e8;--t2:#7a92aa;--t3:#3d5570;
+  --b:rgba(201,168,76,0.15);--b2:rgba(201,168,76,0.07);
+  --D:'Cormorant Garamond',Georgia,serif;
+  --S:'Outfit',sans-serif;--M:'DM Mono',monospace;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--navy);color:var(--text);font-family:var(--S);overflow-x:hidden;line-height:1.7}
-
-/* diagonal texture */
+body{background:var(--navy);color:var(--t);font-family:var(--S);overflow-x:hidden;line-height:1.7}
 body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
-  background-image:repeating-linear-gradient(-45deg,transparent,transparent 80px,rgba(201,168,76,0.015) 80px,rgba(201,168,76,0.015) 81px)}
+  background-image:repeating-linear-gradient(-45deg,transparent,transparent 80px,rgba(201,168,76,0.012) 80px,rgba(201,168,76,0.012) 81px)}
 
-/* ── NAV ── */
-nav{position:fixed;top:0;left:0;right:0;z-index:500;height:68px;
-  display:flex;align-items:center;justify-content:space-between;padding:0 56px;
-  background:rgba(8,15,28,0.94);backdrop-filter:blur(20px);
-  border-bottom:1px solid var(--border)}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;height:64px;
+  display:flex;align-items:center;justify-content:space-between;padding:0 52px;
+  background:rgba(8,15,28,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--b)}
 .nlogo{display:flex;align-items:center;gap:12px;text-decoration:none}
-.nmark{width:36px;height:36px;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;
-  font-family:var(--D);font-size:17px;font-weight:700;color:var(--gold)}
-.nname{font-family:var(--D);font-size:18px;font-weight:600;color:var(--cream)}
-.nlinks{display:flex;align-items:center;gap:30px}
-.nlinks a{font-family:var(--M);font-size:10px;color:var(--text2);text-decoration:none;
+.nmark{width:34px;height:34px;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;
+  font-family:var(--D);font-size:16px;font-weight:700;color:var(--gold)}
+.nname{font-family:var(--D);font-size:17px;font-weight:600;color:var(--cream)}
+.nlinks{display:flex;align-items:center;gap:28px}
+.nlinks a{font-family:var(--M);font-size:10px;color:var(--t2);text-decoration:none;
   letter-spacing:1.5px;text-transform:uppercase;transition:color .2s;position:relative}
-.nlinks a::after{content:'';position:absolute;left:0;bottom:-3px;height:1px;width:0;
-  background:var(--gold);transition:width .25s}
-.nlinks a:hover,.nlinks a.active{color:var(--gold)}
-.nlinks a:hover::after,.nlinks a.active::after{width:100%}
-.ncta{font-family:var(--S);font-size:11px;font-weight:600;letter-spacing:1.5px;
-  text-transform:uppercase;padding:9px 22px;border:1px solid var(--gold);
-  color:var(--gold);text-decoration:none;transition:all .25s}
-.ncta:hover{background:var(--gold);color:var(--navy)}
+.nlinks a::after{content:'';position:absolute;left:0;bottom:-3px;height:1px;width:0;background:var(--gold);transition:width .25s}
+.nlinks a:hover,.nlinks a.act{color:var(--gold)}
+.nlinks a:hover::after,.nlinks a.act::after{width:100%}
+.ncta{padding:8px 20px!important;border:1px solid var(--gold)!important;color:var(--gold)!important;transition:all .25s!important}
+.ncta:hover{background:var(--gold)!important;color:var(--navy)!important}
+.ncta::after{display:none!important}
 
-/* ── HERO ── */
+/* HERO */
 #hero{position:relative;z-index:1;min-height:100vh;
-  padding:68px 56px 40px;overflow:hidden}
-.hwm{position:absolute;right:-80px;top:50%;transform:translateY(-50%);
-  width:600px;height:600px;border:1px solid rgba(201,168,76,0.05);border-radius:50%;pointer-events:none}
-.hwm::before{content:'';position:absolute;inset:48px;border:1px solid rgba(201,168,76,0.04);border-radius:50%}
-.hwm::after{content:'RP';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
-  font-family:var(--D);font-size:200px;font-weight:700;color:rgba(201,168,76,0.03);letter-spacing:-10px}
-.hcontent{max-width:680px}
-.htag{display:flex;align-items:center;gap:14px;margin-bottom:28px;
-  opacity:0;animation:up .8s ease forwards .1s}
-.htagline{width:36px;height:1px;background:var(--gold)}
+  display:grid;grid-template-columns:1fr 390px;
+  align-items:center;gap:52px;padding:96px 52px 52px}
+.hcontent{max-width:600px}
+.htag{display:flex;align-items:center;gap:12px;margin-bottom:24px;opacity:0;animation:up .7s ease forwards .1s}
+.htagline{width:32px;height:1px;background:var(--gold)}
 .htagtxt{font-family:var(--M);font-size:11px;color:var(--gold);letter-spacing:3px;text-transform:uppercase}
-.hname{font-family:var(--D);font-size:clamp(58px,8vw,104px);font-weight:700;
+.hname{font-family:var(--D);font-size:clamp(54px,7vw,96px);font-weight:700;
   color:var(--cream);line-height:.95;letter-spacing:-2px;margin-bottom:8px;
-  opacity:0;animation:up .8s ease forwards .3s}
+  opacity:0;animation:up .7s ease forwards .25s}
 .hname em{font-style:italic;
-  background:linear-gradient(90deg,var(--golddim),var(--gold3),var(--gold),var(--gold3),var(--golddim));
+  background:linear-gradient(90deg,var(--gdim),var(--gold3),var(--gold),var(--gold3),var(--gdim));
   background-size:300% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;
   background-clip:text;animation:shimmer 4s linear infinite}
-@keyframes shimmer{0%{background-position:-200% center}100%{background-position:200% center}}
-.htitle{font-family:var(--D);font-size:clamp(18px,2.5vw,28px);font-style:italic;
-  color:var(--text2);margin-bottom:32px;opacity:0;animation:up .8s ease forwards .5s}
-.hdesc{font-size:15px;font-weight:300;color:var(--text2);max-width:500px;line-height:1.9;
-  border-left:2px solid var(--golddim);padding-left:18px;margin-bottom:44px;
-  opacity:0;animation:up .8s ease forwards .7s}
-.hbtns{display:flex;gap:14px;flex-wrap:wrap;opacity:0;animation:up .8s ease forwards .9s}
+.htitle{font-family:var(--D);font-size:clamp(15px,1.8vw,22px);font-style:italic;
+  color:var(--t2);margin-bottom:28px;opacity:0;animation:up .7s ease forwards .4s}
+.hdesc{font-size:14px;font-weight:300;color:var(--t2);max-width:470px;line-height:1.95;
+  border-left:2px solid var(--gdim);padding-left:16px;margin-bottom:36px;
+  opacity:0;animation:up .7s ease forwards .55s}
+.hbtns{display:flex;gap:12px;flex-wrap:wrap;opacity:0;animation:up .7s ease forwards .7s}
 .btn-g{font-family:var(--S);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
-  padding:15px 34px;background:linear-gradient(135deg,var(--golddim),var(--gold2));color:var(--navy);
+  padding:13px 28px;background:linear-gradient(135deg,var(--gdim),var(--gold2));color:var(--navy);
   border:none;cursor:pointer;text-decoration:none;display:inline-block;
-  box-shadow:0 4px 20px rgba(201,168,76,0.25);transition:all .25s}
-.btn-g:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(201,168,76,0.4)}
+  box-shadow:0 4px 18px rgba(201,168,76,.2);transition:all .25s}
+.btn-g:hover{transform:translateY(-2px);box-shadow:0 8px 26px rgba(201,168,76,.36)}
 .btn-o{font-family:var(--S);font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;
-  padding:14px 34px;background:transparent;color:var(--cream);
-  border:1px solid rgba(213,200,170,.3);text-decoration:none;display:inline-block;transition:all .25s}
+  padding:12px 28px;background:transparent;color:var(--cream);
+  border:1px solid rgba(213,200,170,.22);text-decoration:none;display:inline-block;transition:all .25s}
 .btn-o:hover{border-color:var(--gold);color:var(--gold)}
-.hstats{display:flex;border-top:1px solid var(--border);margin-top:72px;
-  opacity:0;animation:up .8s ease forwards 1.1s}
-.hstat{flex:1;padding:30px 20px;border-right:1px solid var(--border)}
-.hstat:last-child{border-right:none}
-.hstatnum{display:block;font-family:var(--D);font-size:46px;font-weight:700;color:var(--gold);
-  line-height:1;margin-bottom:4px}
-.hstatlbl{font-size:11px;color:var(--text3);letter-spacing:.5px}
 
-/* ── DIVIDER ── */
+/* PROFILE CARD */
+.hcard{background:var(--navy2);border:1px solid var(--b);border-top:3px solid var(--gold);
+  padding:30px 26px;display:flex;flex-direction:column;align-items:center;
+  position:relative;overflow:hidden;opacity:0;animation:up .8s ease forwards 1s}
+.hcard::before{content:'';position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse at 50% 0%,rgba(201,168,76,0.06),transparent 60%)}
+.hav{position:relative;width:106px;height:106px;margin-bottom:14px;flex-shrink:0}
+.hav-r1{position:absolute;inset:-8px;border-radius:50%;border:1.5px solid rgba(201,168,76,.22);animation:spin 9s linear infinite}
+.hav-r1::after{content:'';position:absolute;top:-3px;left:50%;transform:translateX(-50%);
+  width:6px;height:6px;border-radius:50%;background:var(--gold)}
+.hav-r2{position:absolute;inset:-18px;border-radius:50%;border:1px dashed rgba(201,168,76,.1);animation:spin 15s linear infinite reverse}
+.hav-mono{width:106px;height:106px;border-radius:50%;
+  background:linear-gradient(135deg,var(--navy3),var(--navy4));
+  border:2px solid rgba(201,168,76,.32);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--D);font-size:38px;font-weight:700;color:var(--gold);
+  box-shadow:0 0 26px rgba(201,168,76,.1)}
+.hav-badge{position:absolute;bottom:-4px;left:50%;transform:translateX(-50%);
+  background:var(--navy);border:1px solid rgba(74,222,128,.35);
+  padding:3px 10px;white-space:nowrap;
+  display:flex;align-items:center;gap:5px;
+  font-family:var(--M);font-size:9px;color:#4ade80;letter-spacing:1px}
+.hav-pip{width:5px;height:5px;border-radius:50%;background:#4ade80;box-shadow:0 0 5px #4ade80;animation:pip 2s infinite}
+.hcard-name{font-family:var(--D);font-size:19px;font-weight:700;color:var(--cream);margin-bottom:3px;text-align:center}
+.hcard-sub{font-family:var(--M);font-size:10px;color:var(--gold);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px;text-align:center}
+.hcard-loc{font-size:12px;color:var(--t3);margin-bottom:16px;text-align:center}
+.hcard-div{width:100%;height:1px;background:var(--b);margin-bottom:14px}
+
+/* VISITOR COUNTER */
+.hcard-visits{display:flex;flex-direction:column;align-items:center;margin-bottom:16px;gap:3px;padding:12px 0}
+.hcard-vnum{font-family:var(--D);font-size:42px;font-weight:700;color:var(--gold);line-height:1;
+  background:linear-gradient(90deg,var(--gdim),var(--gold3),var(--gold));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hcard-vlbl{font-family:var(--M);font-size:9px;color:var(--t3);letter-spacing:2px;text-transform:uppercase}
+
+/* QUICK FACTS */
+.hcard-facts{width:100%;display:flex;flex-direction:column;gap:2px;margin-bottom:14px}
+.hcard-fact{display:flex;justify-content:space-between;align-items:center;
+  padding:8px 11px;background:var(--navy3);border:1px solid var(--b2)}
+.hf-lbl{font-family:var(--M);font-size:9px;color:var(--t3);letter-spacing:1px;text-transform:uppercase}
+.hf-val{font-size:12px;color:var(--t);font-weight:400}
+.hcard-cta{display:block;width:100%;text-align:center;margin-top:2px;
+  font-family:var(--S);font-size:10px;font-weight:700;letter-spacing:1.5px;
+  text-transform:uppercase;text-decoration:none;padding:12px;color:var(--navy);
+  background:linear-gradient(135deg,var(--gdim),var(--gold2));transition:all .25s}
+.hcard-cta:hover{box-shadow:0 6px 20px rgba(201,168,76,.3);transform:translateY(-2px)}
+
+/* DIVIDER */
 .div{position:relative;z-index:1;height:1px;
-  background:linear-gradient(90deg,transparent,var(--border) 20%,var(--border) 80%,transparent)}
+  background:linear-gradient(90deg,transparent,var(--b) 20%,var(--b) 80%,transparent)}
 
-/* ── SECTIONS ── */
-.sec{position:relative;z-index:1;padding:100px 56px;max-width:1120px;margin:0 auto}
-.eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:12px}
-.enum{font-family:var(--M);font-size:11px;color:var(--golddim);letter-spacing:1px}
-.eline{height:1px;background:var(--golddim);width:0;transition:width .9s ease}
+/* SECTIONS */
+.sec{position:relative;z-index:1;padding:88px 52px;max-width:1100px;margin:0 auto}
+.eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.enum{font-family:var(--M);font-size:11px;color:var(--gdim);letter-spacing:1px}
+.eline{height:1px;background:var(--gdim);width:0;transition:width .9s ease}
 .eline.go{width:40px}
-.etxt{font-family:var(--S);font-size:11px;font-weight:500;color:var(--text3);
-  letter-spacing:2px;text-transform:uppercase}
-h2{font-family:var(--D);font-size:clamp(34px,5vw,56px);font-weight:700;
-  color:var(--cream);letter-spacing:-.5px;line-height:1.05;margin-bottom:48px}
+.etxt{font-family:var(--S);font-size:11px;font-weight:500;color:var(--t3);letter-spacing:2px;text-transform:uppercase}
+h2{font-family:var(--D);font-size:clamp(30px,4.5vw,50px);font-weight:700;
+  color:var(--cream);letter-spacing:-.5px;line-height:1.05;margin-bottom:42px}
 h2 em{color:var(--gold);font-style:italic}
 
-/* ── ABOUT ── */
-.about-g{display:grid;grid-template-columns:1.2fr 1fr;gap:72px;align-items:start}
-.about-p{font-size:15px;color:var(--text2);font-weight:300;line-height:1.9;margin-bottom:18px}
+/* ABOUT */
+.about-g{display:grid;grid-template-columns:1.3fr 1fr;gap:60px;align-items:start}
+.about-p{font-size:14px;color:var(--t2);font-weight:300;line-height:1.95;margin-bottom:16px}
 .about-p strong{color:var(--cream);font-weight:500}
-.acard{padding:20px 24px;background:var(--navy2);border:1px solid var(--border2);
-  border-left:3px solid var(--golddim);margin-bottom:2px;
-  transition:background .25s,border-left-color .25s,transform .25s,box-shadow .25s}
-.acard:hover{background:var(--navy3);border-left-color:var(--gold);
-  transform:translateX(4px);box-shadow:0 4px 20px rgba(0,0,0,.3)}
-.acard-lbl{font-family:var(--M);font-size:10px;color:var(--text3);letter-spacing:2px;
-  text-transform:uppercase;margin-bottom:5px}
-.acard-val{font-family:var(--D);font-size:19px;font-weight:600;color:var(--gold2)}
-.acard-sub{font-size:12px;color:var(--text3);margin-top:2px}
+.about-timeline{display:flex;flex-direction:column;gap:2px}
+.atl-item{padding:17px 20px;background:var(--navy2);border:1px solid var(--b2);
+  border-left:3px solid var(--gdim);transition:border-left-color .25s,background .25s,transform .25s}
+.atl-item:hover{border-left-color:var(--gold);background:var(--navy3);transform:translateX(4px)}
+.atl-yr{font-family:var(--M);font-size:10px;color:var(--gdim);letter-spacing:1px;margin-bottom:3px}
+.atl-role{font-family:var(--D);font-size:16px;font-weight:600;color:var(--gold2)}
+.atl-co{font-size:12px;color:var(--t3)}
 
-/* ── EXPERIENCE ── */
-.exp-item{background:var(--navy2);border:1px solid var(--border2);
-  margin-bottom:2px;overflow:hidden}
-.exp-hdr{padding:26px 32px;display:grid;grid-template-columns:1fr auto;gap:16px;
-  align-items:center;border-left:3px solid var(--border);cursor:pointer;
-  transition:background .2s,border-left-color .2s}
+/* EXPERIENCE */
+.exp-item{background:var(--navy2);border:1px solid var(--b2);margin-bottom:2px;overflow:hidden}
+.exp-hdr{padding:22px 28px;display:grid;grid-template-columns:1fr auto;gap:14px;
+  align-items:center;border-left:3px solid var(--b);cursor:pointer;transition:background .2s,border-left-color .2s}
 .exp-item:hover .exp-hdr,.exp-item.open .exp-hdr{border-left-color:var(--gold);background:var(--navy3)}
-.exp-date{font-family:var(--M);font-size:10px;color:var(--golddim);letter-spacing:1px;margin-bottom:5px}
-.exp-role{font-family:var(--D);font-size:21px;font-weight:600;color:var(--cream);margin-bottom:3px}
-.exp-co{font-size:13px;color:var(--text2)}
-.exp-co span{color:var(--golddim)}
-.exp-tog{font-size:22px;color:var(--golddim);transition:transform .3s,color .2s;user-select:none;line-height:1}
+.exp-date{font-family:var(--M);font-size:10px;color:var(--gdim);letter-spacing:1px;margin-bottom:4px}
+.exp-role{font-family:var(--D);font-size:19px;font-weight:600;color:var(--cream);margin-bottom:2px}
+.exp-co{font-size:13px;color:var(--t2)}
+.exp-co span{color:var(--gdim)}
+.exp-tog{font-size:20px;color:var(--gdim);transition:transform .3s,color .2s;user-select:none}
 .exp-item.open .exp-tog{transform:rotate(45deg);color:var(--gold)}
 .exp-body{max-height:0;overflow:hidden;transition:max-height .5s ease}
-.exp-item.open .exp-body{max-height:700px}
-.exp-bi{padding:0 32px 26px}
-.exp-ul{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:18px}
-.exp-ul li{font-size:14px;color:var(--text2);font-weight:300;line-height:1.75;
-  padding-left:18px;position:relative;border-bottom:1px solid rgba(30,45,61,.4);padding-bottom:9px}
-.exp-ul li::before{content:'◆';position:absolute;left:0;top:6px;color:var(--golddim);font-size:8px}
+.exp-item.open .exp-body{max-height:600px}
+.exp-bi{padding:0 28px 22px}
+.exp-ul{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:14px}
+.exp-ul li{font-size:13px;color:var(--t2);font-weight:300;line-height:1.75;
+  padding-left:15px;position:relative;padding-bottom:8px;border-bottom:1px solid rgba(30,45,61,.4)}
+.exp-ul li::before{content:'◆';position:absolute;left:0;top:6px;color:var(--gdim);font-size:7px}
 .exp-ul li strong{color:var(--cream);font-weight:500}
-.tags{display:flex;flex-wrap:wrap;gap:6px}
-.tag{font-family:var(--M);font-size:10px;padding:4px 10px;
-  border:1px solid var(--border);color:var(--text3);background:var(--navy);letter-spacing:.5px}
+.tags{display:flex;flex-wrap:wrap;gap:5px}
+.tag{font-family:var(--M);font-size:10px;padding:3px 9px;
+  border:1px solid var(--b);color:var(--t3);background:var(--navy);letter-spacing:.5px}
 
-/* ── SKILLS ── */
+/* SKILLS */
 .skill-grid{display:flex;flex-direction:column;gap:2px}
-.skill-row{display:grid;grid-template-columns:190px 1fr;background:var(--navy2);
-  border:1px solid var(--border2);overflow:hidden;
+.skill-row{display:grid;grid-template-columns:178px 1fr;background:var(--navy2);border:1px solid var(--b2);overflow:hidden;
   transition:transform .2s,background .2s}
 .skill-row:hover{transform:translateX(4px);background:var(--navy3)}
-.skill-cat{padding:18px 22px;border-right:1px solid var(--border2);
-  background:var(--navy3);display:flex;align-items:center}
-.skill-cat-name{font-family:var(--D);font-size:15px;font-weight:600;
-  color:var(--gold2);font-style:italic}
-.skill-pills{padding:18px 22px;display:flex;flex-wrap:wrap;gap:7px;align-items:center}
-.pill{font-family:var(--S);font-size:12px;padding:5px 13px;
-  background:var(--goldpale);border:1px solid var(--border);color:var(--text);
+.skill-cat{padding:15px 19px;border-right:1px solid var(--b2);background:var(--navy3);display:flex;align-items:center}
+.skill-cat-name{font-family:var(--D);font-size:15px;font-weight:600;color:var(--gold2);font-style:italic}
+.skill-pills{padding:15px 19px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.pill{font-family:var(--S);font-size:12px;padding:4px 11px;
+  background:var(--gpale);border:1px solid var(--b);color:var(--t);
   transition:all .2s cubic-bezier(.34,1.56,.64,1)}
-.pill:hover{transform:scale(1.08);background:rgba(201,168,76,.14);border-color:var(--golddim);color:var(--cream)}
+.pill:hover{transform:scale(1.08);background:rgba(201,168,76,.13);border-color:var(--gdim);color:var(--cream)}
 
-/* ── PROJECTS ── */
+/* PROJECTS */
 .proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
-.proj-card{background:var(--navy2);border:1px solid var(--border2);padding:32px 28px;
-  position:relative;overflow:hidden;
-  transition:background .25s,transform .3s,box-shadow .3s}
+.proj-card{background:var(--navy2);border:1px solid var(--b2);padding:28px 24px;
+  position:relative;overflow:hidden;transition:background .25s,transform .3s,box-shadow .3s}
 .proj-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;
-  background:linear-gradient(90deg,var(--golddim),var(--gold2));
-  transform:scaleX(0);transform-origin:left;transition:transform .35s ease}
-.proj-card:hover{background:var(--navy3);transform:translateY(-5px);box-shadow:0 16px 40px rgba(0,0,0,.4)}
+  background:linear-gradient(90deg,var(--gdim),var(--gold2));
+  transform:scaleX(0);transform-origin:left;transition:transform .35s}
+.proj-card:hover{background:var(--navy3);transform:translateY(-5px);box-shadow:0 14px 34px rgba(0,0,0,.4)}
 .proj-card:hover::after{transform:scaleX(1)}
-.proj-num{font-family:var(--M);font-size:10px;color:var(--text3);letter-spacing:2px;margin-bottom:14px}
-.proj-name{font-family:var(--D);font-size:19px;font-weight:600;color:var(--cream);
-  margin-bottom:10px;line-height:1.25}
-.proj-desc{font-size:13px;color:var(--text2);line-height:1.8;font-weight:300;margin-bottom:16px}
-.proj-impact{font-family:var(--M);font-size:11px;color:var(--gold2);
-  padding:8px 12px;background:var(--goldpale);border-left:2px solid var(--golddim);margin-bottom:16px}
-.proj-tech{display:flex;flex-wrap:wrap;gap:5px}
-.proj-tech span{font-family:var(--M);font-size:10px;padding:3px 8px;
-  border:1px solid var(--border2);color:var(--text3)}
+.proj-num{font-family:var(--M);font-size:10px;color:var(--t3);letter-spacing:2px;margin-bottom:11px}
+.proj-name{font-family:var(--D);font-size:18px;font-weight:600;color:var(--cream);margin-bottom:8px;line-height:1.25}
+.proj-what{font-size:13px;color:var(--t2);line-height:1.75;font-weight:300;margin-bottom:13px}
+.proj-out{font-family:var(--M);font-size:11px;color:var(--gold2);
+  padding:7px 10px;background:var(--gpale);border-left:2px solid var(--gdim);margin-bottom:13px}
+.proj-tech{display:flex;flex-wrap:wrap;gap:4px}
+.proj-tech span{font-family:var(--M);font-size:10px;padding:3px 7px;border:1px solid var(--b2);color:var(--t3)}
 
-/* ── AWARD ── */
-.award{background:var(--navy2);border:1px solid var(--border);border-top:3px solid var(--gold);
-  padding:36px 44px;display:flex;align-items:center;gap:36px;position:relative;overflow:hidden;margin-top:48px}
-.award::before{content:'★';position:absolute;right:36px;top:50%;transform:translateY(-50%);
-  font-size:130px;color:rgba(201,168,76,0.04);pointer-events:none}
-.award-seal{width:68px;height:68px;flex-shrink:0;border:2px solid var(--gold);
-  border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px}
-.award-lbl{font-family:var(--M);font-size:10px;color:var(--golddim);letter-spacing:2px;
-  text-transform:uppercase;margin-bottom:5px}
-.award-name{font-family:var(--D);font-size:26px;font-weight:700;color:var(--cream);margin-bottom:3px}
-.award-co{font-size:13px;color:var(--gold);margin-bottom:8px}
-.award-desc{font-size:14px;color:var(--text2);font-weight:300}
-
-/* ── AI CHAT ── */
+/* AI CHAT */
 #ai{position:relative;z-index:1;background:var(--navy2);
-  border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:100px 56px}
-.ai-inner{max-width:1120px;margin:0 auto}
-.ai-grid{display:grid;grid-template-columns:1fr 1.55fr;gap:60px;align-items:start}
-.ai-side p{font-size:14px;color:var(--text2);font-weight:300;line-height:1.85;margin-bottom:22px}
-.qps{display:flex;flex-direction:column;gap:7px;margin-top:4px}
-.qps-lbl{font-family:var(--M);font-size:10px;color:var(--text3);letter-spacing:1.5px;
-  text-transform:uppercase;margin-bottom:4px}
-.qp{width:100%;text-align:left;font-family:var(--S);font-size:12px;padding:11px 16px;
-  background:var(--navy3);border:1px solid var(--border2);color:var(--text2);
-  cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:10px}
-.qp::before{content:'→';font-family:var(--M);color:var(--golddim);transition:color .2s}
-.qp:hover{border-color:var(--golddim);color:var(--cream);background:var(--navy4)}
+  border-top:1px solid var(--b);border-bottom:1px solid var(--b);padding:88px 52px}
+.ai-inner{max-width:1100px;margin:0 auto}
+.ai-grid{display:grid;grid-template-columns:1fr 1.6fr;gap:52px;align-items:start}
+.ai-side p{font-size:14px;color:var(--t2);font-weight:300;line-height:1.85;margin-bottom:18px}
+.qps{display:flex;flex-direction:column;gap:6px}
+.qps-lbl{font-family:var(--M);font-size:10px;color:var(--t3);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px}
+.qp{width:100%;text-align:left;font-family:var(--S);font-size:12px;padding:10px 13px;
+  background:var(--navy3);border:1px solid var(--b2);color:var(--t2);
+  cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:8px}
+.qp::before{content:'→';font-family:var(--M);color:var(--gdim);transition:color .2s}
+.qp:hover{border-color:var(--gdim);color:var(--cream);background:var(--navy4)}
 .qp:hover::before{color:var(--gold)}
-.chatbox{background:var(--navy);border:1px solid var(--border);display:flex;flex-direction:column}
-.chat-top{padding:14px 20px;background:var(--navy3);border-bottom:1px solid var(--border);
-  display:flex;align-items:center;gap:10px}
-.chat-dot{width:7px;height:7px;border-radius:50%;background:var(--gold);
-  box-shadow:0 0 10px rgba(201,168,76,.5);animation:pip 2s infinite}
-.chat-lbl{font-family:var(--M);font-size:11px;color:var(--text3);letter-spacing:1.5px}
-.chat-msgs{height:360px;overflow-y:auto;padding:22px;
-  display:flex;flex-direction:column;gap:16px;scroll-behavior:smooth}
+.chatbox{background:var(--navy);border:1px solid var(--b);display:flex;flex-direction:column}
+.chat-top{padding:12px 17px;background:var(--navy3);border-bottom:1px solid var(--b);display:flex;align-items:center;gap:9px}
+.chat-dot{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 8px rgba(201,168,76,.45);animation:pip 2s infinite}
+.chat-lbl{font-family:var(--M);font-size:11px;color:var(--t3);letter-spacing:1.5px}
+.chat-msgs{height:330px;overflow-y:auto;padding:18px;display:flex;flex-direction:column;gap:13px;scroll-behavior:smooth}
 .chat-msgs::-webkit-scrollbar{width:3px}
-.chat-msgs::-webkit-scrollbar-track{background:transparent}
-.chat-msgs::-webkit-scrollbar-thumb{background:var(--border)}
-.cmsg{display:flex;gap:11px;align-items:flex-start;animation:up .3s ease}
+.chat-msgs::-webkit-scrollbar-thumb{background:var(--b)}
+.cmsg{display:flex;gap:10px;align-items:flex-start;animation:up .3s ease}
 .cmsg.u{flex-direction:row-reverse}
-.cav{width:32px;height:32px;flex-shrink:0;border:1px solid var(--border);
-  display:flex;align-items:center;justify-content:center;
-  font-family:var(--D);font-size:12px;font-weight:600}
-.cav.ai{color:var(--gold);border-color:rgba(201,168,76,.4);background:var(--goldpale)}
-.cav.me{color:var(--cream);border-color:var(--border);background:var(--navy3)}
-.cbub{max-width:78%;padding:12px 16px;font-size:13px;line-height:1.75;font-weight:300}
-.cmsg.ai .cbub{background:var(--navy3);border:1px solid var(--border2);color:var(--text)}
-.cmsg.u .cbub{background:var(--goldpale);border:1px solid rgba(201,168,76,.18);color:var(--cream)}
-.typing{display:flex;gap:5px;align-items:center;padding:2px 0}
-.td{width:6px;height:6px;border-radius:50%;background:var(--golddim);animation:td 1.3s infinite}
-.td:nth-child(2){animation-delay:.15s}
-.td:nth-child(3){animation-delay:.3s}
-@keyframes td{0%,100%{opacity:.3;transform:translateY(0)}50%{opacity:1;transform:translateY(-4px)}}
-.chat-foot{border-top:1px solid var(--border);display:flex}
-.cinp{flex:1;background:var(--navy2);border:none;outline:none;padding:15px 18px;
+.cav{width:29px;height:29px;flex-shrink:0;border:1px solid var(--b);
+  display:flex;align-items:center;justify-content:center;font-family:var(--D);font-size:11px;font-weight:600}
+.cav.ai{color:var(--gold);border-color:rgba(201,168,76,.3);background:var(--gpale)}
+.cav.me{color:var(--cream);border-color:var(--b);background:var(--navy3)}
+.cbub{max-width:80%;padding:10px 13px;font-size:13px;line-height:1.7;font-weight:300}
+.cmsg.ai .cbub{background:var(--navy3);border:1px solid var(--b2);color:var(--t)}
+.cmsg.u .cbub{background:var(--gpale);border:1px solid rgba(201,168,76,.15);color:var(--cream)}
+.typing{display:flex;gap:5px;align-items:center}
+.td{width:5px;height:5px;border-radius:50%;background:var(--gdim);animation:td 1.3s infinite}
+.td:nth-child(2){animation-delay:.15s}.td:nth-child(3){animation-delay:.3s}
+.chat-foot{border-top:1px solid var(--b);display:flex}
+.cinp{flex:1;background:var(--navy2);border:none;outline:none;padding:13px 15px;
   font-family:var(--S);font-size:13px;color:var(--cream);font-weight:300}
-.cinp::placeholder{color:var(--text3)}
-.cbtn{padding:15px 26px;background:linear-gradient(135deg,var(--golddim),var(--gold));
+.cinp::placeholder{color:var(--t3)}
+.cbtn{padding:13px 22px;background:linear-gradient(135deg,var(--gdim),var(--gold));
   border:none;cursor:pointer;font-family:var(--S);font-size:11px;font-weight:700;
   letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);transition:opacity .2s}
-.cbtn:hover{opacity:.88}
-.cbtn:disabled{opacity:.35;cursor:not-allowed}
+.cbtn:hover{opacity:.88}.cbtn:disabled{opacity:.35;cursor:not-allowed}
 
-/* ── CONTACT ── */
-.contact-g{display:grid;grid-template-columns:1.1fr 1fr;gap:52px}
-.form-wrap{background:var(--navy2);border:1px solid var(--border);
-  border-top:3px solid var(--gold);padding:40px}
-.form-title{font-family:var(--D);font-size:22px;font-weight:600;color:var(--cream);margin-bottom:6px}
-.form-sub{font-size:13px;color:var(--text2);font-weight:300;margin-bottom:28px}
-.field{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
-.field label{font-family:var(--M);font-size:10px;color:var(--text3);
-  letter-spacing:2px;text-transform:uppercase}
-.field input,.field textarea{background:var(--navy3);border:1px solid var(--border2);
-  padding:12px 16px;font-family:var(--S);font-size:13px;color:var(--cream);
+/* CONTACT */
+.contact-g{display:grid;grid-template-columns:1.1fr 1fr;gap:44px}
+.form-wrap{background:var(--navy2);border:1px solid var(--b);border-top:3px solid var(--gold);padding:34px}
+.form-title{font-family:var(--D);font-size:21px;font-weight:600;color:var(--cream);margin-bottom:5px}
+.form-sub{font-size:13px;color:var(--t2);font-weight:300;margin-bottom:22px}
+.field{display:flex;flex-direction:column;gap:5px;margin-bottom:13px}
+.field label{font-family:var(--M);font-size:10px;color:var(--t3);letter-spacing:2px;text-transform:uppercase}
+.field input,.field textarea{background:var(--navy3);border:1px solid var(--b2);
+  padding:10px 13px;font-family:var(--S);font-size:13px;color:var(--cream);
   outline:none;font-weight:300;transition:border-color .25s;resize:vertical}
-.field input:focus,.field textarea:focus{border-color:var(--golddim)}
-.field input::placeholder,.field textarea::placeholder{color:var(--text3)}
-#form-msg{display:none;font-family:var(--M);font-size:12px;padding:12px 0;letter-spacing:.5px;margin-top:4px}
+.field input:focus,.field textarea:focus{border-color:var(--gdim)}
+.field input::placeholder,.field textarea::placeholder{color:var(--t3)}
+#form-msg{display:none;font-family:var(--M);font-size:12px;padding:9px 0;letter-spacing:.5px;margin-top:4px}
 #form-msg.ok{color:var(--gold)}
 #form-msg.err{color:#f87171}
-
-.cinfo{display:flex;flex-direction:column;gap:3px}
-.citem{display:flex;align-items:center;gap:16px;padding:20px 22px;
-  background:var(--navy2);border:1px solid var(--border2);
-  border-left:2px solid var(--golddim);
+.cinfo{display:flex;flex-direction:column;gap:2px}
+.citem{display:flex;align-items:center;gap:13px;padding:17px 19px;
+  background:var(--navy2);border:1px solid var(--b2);border-left:2px solid var(--gdim);
   transition:background .2s,border-left-color .2s,transform .2s}
 .citem:hover{background:var(--navy3);border-left-color:var(--gold);transform:translateX(4px)}
-.citem-ico{font-size:18px;flex-shrink:0}
-.citem-lbl{font-family:var(--M);font-size:10px;color:var(--text3);
-  letter-spacing:1.5px;text-transform:uppercase;margin-bottom:3px}
-.citem-val{font-size:14px;color:var(--text)}
+.citem-ico{font-size:16px;flex-shrink:0}
+.citem-lbl{font-family:var(--M);font-size:10px;color:var(--t3);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:2px}
+.citem-val{font-size:13px;color:var(--t)}
 .citem-val a{color:var(--gold2);text-decoration:none;transition:color .2s}
 .citem-val a:hover{color:var(--gold3)}
 
-/* ── FOOTER ── */
-footer{position:relative;z-index:1;border-top:1px solid var(--border);
-  padding:26px 56px;display:flex;justify-content:space-between;align-items:center}
-.fbrand{font-family:var(--D);font-size:16px;font-weight:600;color:var(--gold)}
-.fcopy{font-family:var(--M);font-size:11px;color:var(--text3)}
-.fstatus{display:flex;align-items:center;gap:8px;font-family:var(--M);font-size:11px;color:var(--text3)}
-.fpip{width:7px;height:7px;border-radius:50%;background:#4ade80;
-  box-shadow:0 0 8px #4ade80;animation:pip 2.2s infinite}
+/* FOOTER */
+footer{position:relative;z-index:1;border-top:1px solid var(--b);
+  padding:22px 52px;display:flex;justify-content:space-between;align-items:center}
+.fbrand{font-family:var(--D);font-size:15px;font-weight:600;color:var(--gold)}
+.fcopy{font-family:var(--M);font-size:11px;color:var(--t3)}
+.fstatus{display:flex;align-items:center;gap:7px;font-family:var(--M);font-size:11px;color:var(--t3)}
+.fpip{width:7px;height:7px;border-radius:50%;background:#4ade80;box-shadow:0 0 7px #4ade80;animation:pip 2.2s infinite}
 
-/* ── FLOAT BTN ── */
-#floatli{position:fixed;bottom:28px;right:28px;z-index:900;
-  display:flex;align-items:center;gap:8px;
-  background:linear-gradient(135deg,var(--golddim),var(--gold2));
-  color:var(--navy);font-family:var(--S);font-size:11px;font-weight:700;
+/* FLOAT BTN */
+#floatli{position:fixed;bottom:24px;right:24px;z-index:900;
+  display:flex;align-items:center;gap:7px;
+  background:linear-gradient(135deg,var(--gdim),var(--gold2));
+  color:var(--navy);font-family:var(--S);font-size:10px;font-weight:700;
   letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;
-  padding:12px 20px;box-shadow:0 4px 20px rgba(201,168,76,.3);
-  opacity:0;transition:opacity .3s,box-shadow .2s;
-  animation:fbounce 3s ease-in-out infinite}
+  padding:11px 17px;box-shadow:0 4px 16px rgba(201,168,76,.26);
+  opacity:0;transition:opacity .3s,box-shadow .2s;animation:fbounce 3s ease-in-out infinite}
 #floatli.show{opacity:1}
-#floatli:hover{box-shadow:0 8px 32px rgba(201,168,76,.5);animation:none;transform:translateY(-2px)}
-@keyframes fbounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
-.li-icon{width:18px;height:18px;background:var(--navy);border-radius:3px;
+#floatli:hover{box-shadow:0 8px 26px rgba(201,168,76,.42);animation:none;transform:translateY(-2px)}
+.li-ic{width:16px;height:16px;background:var(--navy);border-radius:2px;
   display:flex;align-items:center;justify-content:center;
-  font-family:var(--D);font-size:11px;font-weight:700;color:var(--gold2)}
+  font-family:var(--D);font-size:10px;font-weight:700;color:var(--gold2)}
 
-/* ── REVEAL ANIMATIONS ── */
-.rv{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease}
-.rv.fl{transform:translateX(-24px)}
-.rv.fr{transform:translateX(24px)}
-.rv.sc{transform:scale(.95)}
+/* REVEAL */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+.rv.fl{transform:translateX(-20px)}
+.rv.fr{transform:translateX(20px)}
 .rv.on{opacity:1!important;transform:none!important}
 
-/* ── HERO LAYOUT ── */
-#hero{position:relative;z-index:1;min-height:100vh;
-  display:grid;grid-template-columns:1fr 420px;
-  align-items:center;gap:60px;padding:100px 56px 60px;}
-
-/* ── PROFILE CARD (right side) ── */
-.hcard{
-  background:var(--navy2);border:1px solid var(--border);
-  border-top:3px solid var(--gold);
-  padding:36px 32px;display:flex;flex-direction:column;align-items:center;
-  gap:0;position:relative;overflow:hidden;
-  animation:up .9s ease forwards 1.2s;opacity:0;
-}
-.hcard::before{
-  content:'';position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(ellipse at 50% 0%,rgba(201,168,76,0.06),transparent 70%);
-}
-/* Avatar */
-.hcard-avatar{position:relative;width:120px;height:120px;margin-bottom:20px;flex-shrink:0}
-.hcard-ring1{
-  position:absolute;inset:-8px;border-radius:50%;
-  border:1.5px solid rgba(201,168,76,0.3);
-  animation:spin1 8s linear infinite;
-}
-.hcard-ring1::after{
-  content:'';position:absolute;top:-3px;left:50%;transform:translateX(-50%);
-  width:6px;height:6px;border-radius:50%;background:var(--gold);
-}
-.hcard-ring2{
-  position:absolute;inset:-18px;border-radius:50%;
-  border:1px dashed rgba(201,168,76,0.15);
-  animation:spin1 14s linear infinite reverse;
-}
-@keyframes spin1{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-.hcard-mono{
-  width:120px;height:120px;border-radius:50%;
-  background:linear-gradient(135deg,var(--navy3),var(--navy4));
-  border:2px solid rgba(201,168,76,0.4);
-  display:flex;align-items:center;justify-content:center;
-  font-family:var(--D);font-size:44px;font-weight:700;
-  color:var(--gold);letter-spacing:-2px;
-  box-shadow:0 0 30px rgba(201,168,76,0.15);
-}
-.hcard-status{
-  position:absolute;bottom:-2px;left:50%;transform:translateX(-50%);
-  background:var(--navy);border:1px solid rgba(74,222,128,0.4);
-  padding:4px 12px;white-space:nowrap;
-  display:flex;align-items:center;gap:6px;
-  font-family:var(--M);font-size:9px;color:#4ade80;letter-spacing:1px;
-}
-.hcard-pip{width:6px;height:6px;border-radius:50%;background:#4ade80;
-  box-shadow:0 0 6px #4ade80;animation:pip 2s infinite}
-/* Text */
-.hcard-name{font-family:var(--D);font-size:22px;font-weight:700;color:var(--cream);
-  margin-bottom:4px;text-align:center}
-.hcard-title{font-family:var(--M);font-size:11px;color:var(--gold);
-  letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px;text-align:center}
-.hcard-co{font-size:12px;color:var(--text3);margin-bottom:20px;text-align:center}
-/* Divider */
-.hcard-div{width:100%;height:1px;background:var(--border);margin:4px 0 16px}
-/* Pills */
-.hcard-pils-lbl{font-family:var(--M);font-size:9px;color:var(--text3);
-  letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;align-self:flex-start}
-.hcard-pils{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:4px;justify-content:center}
-.hcard-pils span{
-  font-family:var(--M);font-size:10px;padding:4px 10px;
-  background:var(--goldpale);border:1px solid var(--border);color:var(--gold2);
-  transition:all .2s;cursor:default;
-}
-.hcard-pils span:hover{background:rgba(201,168,76,0.14);transform:translateY(-2px)}
-/* Metrics */
-.hcard-metrics{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;width:100%;margin:16px 0}
-.hcard-metric{background:var(--navy3);padding:14px 8px;text-align:center;border:1px solid var(--border2)}
-.hcard-mval{font-family:var(--D);font-size:24px;font-weight:700;color:var(--gold);line-height:1}
-.hcard-mlbl{font-family:var(--M);font-size:9px;color:var(--text3);
-  letter-spacing:1px;text-transform:uppercase;margin-top:4px}
-/* CTA */
-.hcard-cta{
-  display:block;width:100%;text-align:center;margin-top:8px;
-  font-family:var(--S);font-size:11px;font-weight:700;letter-spacing:1.5px;
-  text-transform:uppercase;text-decoration:none;
-  padding:13px;color:var(--navy);
-  background:linear-gradient(135deg,var(--golddim),var(--gold2));
-  transition:all .25s;
-}
-.hcard-cta:hover{box-shadow:0 6px 24px rgba(201,168,76,0.35);transform:translateY(-2px)}
-
-/* ── KEYFRAMES ── */
-@keyframes up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+/* KEYFRAMES */
+@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 @keyframes pip{0%,100%{opacity:1}50%{opacity:.35}}
-@keyframes statglow{0%,100%{text-shadow:0 0 0 rgba(201,168,76,0)}50%{text-shadow:0 0 20px rgba(201,168,76,.45)}}
-.hstatnum{animation:statglow 3s ease-in-out infinite}
+@keyframes shimmer{0%{background-position:-200% center}100%{background-position:200% center}}
+@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes td{0%,100%{opacity:.3;transform:translateY(0)}50%{opacity:1;transform:translateY(-4px)}}
+@keyframes fbounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
 
-/* ── RESPONSIVE ── */
-@media(max-width:900px){
-  nav{padding:0 20px}
-  .nlinks{display:none}
-  #hero{grid-template-columns:1fr;padding:100px 20px 40px;gap:40px}
-  .hcard{width:100%}
-  .sec,#ai{padding-left:20px;padding-right:20px}
-  .about-g,.contact-g,.ai-grid{grid-template-columns:1fr;gap:32px}
+/* RESPONSIVE */
+@media(max-width:920px){
+  nav{padding:0 18px}.nlinks{display:none}
+  #hero{grid-template-columns:1fr;padding:88px 18px 32px;gap:28px}
+  .sec,#ai{padding-left:18px;padding-right:18px}
+  .about-g,.contact-g,.ai-grid{grid-template-columns:1fr;gap:26px}
   .proj-grid{grid-template-columns:1fr}
   .skill-row{grid-template-columns:1fr}
-  .skill-cat{border-right:none;border-bottom:1px solid var(--border2)}
-  .hstats{flex-direction:column}
-  .hstat{border-right:none;border-bottom:1px solid var(--border)}
-  footer{padding:20px;flex-direction:column;gap:10px;text-align:center}
-  #ai{padding-top:72px;padding-bottom:72px}
+  .skill-cat{border-right:none;border-bottom:1px solid var(--b2)}
+  footer{padding:18px;flex-direction:column;gap:8px;text-align:center}
+  #ai{padding-top:60px;padding-bottom:60px}
 }
 </style>
 </head>
 <body>
 
-<!-- ── NAV ── -->
+<!-- NAV -->
 <nav>
   <a class="nlogo" href="#hero">
     <div class="nmark">RP</div>
@@ -443,101 +330,96 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);
     <a href="#experience">Experience</a>
     <a href="#skills">Skills</a>
     <a href="#projects">Projects</a>
-    <a href="#awards">Awards</a>
     <a href="#ai">Ask AI</a>
     <a href="#contact" class="ncta">Contact</a>
   </div>
 </nav>
 
-<!-- ── FLOATING LINKEDIN ── -->
 <a id="floatli" href="https://linkedin.com/in/rajeshwari-pillai" target="_blank" rel="noopener">
-  <div class="li-icon">in</div>
-  Connect on LinkedIn
+  <div class="li-ic">in</div>Connect on LinkedIn
 </a>
 
-<!-- ── HERO ── -->
+<!-- HERO -->
 <section id="hero">
-  <!-- LEFT: Text content -->
   <div class="hcontent">
-    <div class="htag">
-      <div class="htagline"></div>
-      <div class="htagtxt">Backend Engineer · Mumbai, India</div>
-    </div>
+    <div class="htag"><div class="htagline"></div><div class="htagtxt">Backend Engineer · Mumbai, India</div></div>
     <div class="hname">Rajeshwari<br/><em>Pillai.</em></div>
     <div class="htitle">Distributed Systems · Event-Driven Architecture · Data Pipelines</div>
-    <p class="hdesc">I design backends that perform under pressure — Kafka pipelines that don't drop messages, async systems that cut latency by 60%, and observability stacks that catch incidents before they become crises. 3+ years of full‑cycle ownership in production.</p>
+    <p class="hdesc">I build backends that hold under pressure — Kafka pipelines, async task queues, production observability stacks. I own the full cycle from design to incident response. 3+ years, two companies, zero dropped messages.</p>
     <div class="hbtns">
       <a href="https://linkedin.com/in/rajeshwari-pillai" target="_blank" class="btn-g">Connect on LinkedIn ↗</a>
       <a href="#ai" class="btn-o">Ask AI About Me</a>
     </div>
-    <div class="hstats">
-      <div class="hstat"><span class="hstatnum" data-target="60" data-suffix="%">60%</span><span class="hstatlbl">API Latency Reduction</span></div>
-      <div class="hstat"><span class="hstatnum" data-target="40" data-suffix="%">40%</span><span class="hstatlbl">Incident MTTR Cut</span></div>
-      <div class="hstat"><span class="hstatnum" data-target="80" data-suffix="%">80%</span><span class="hstatlbl">Manual Ops Automated</span></div>
-      <div class="hstat"><span class="hstatnum" data-target="3" data-suffix="+">3+</span><span class="hstatlbl">Years in Production</span></div>
-    </div>
   </div>
 
-  <!-- RIGHT: Profile card -->
   <div class="hcard">
-    <!-- Avatar / monogram -->
-    <div class="hcard-avatar">
-      <div class="hcard-ring1"></div>
-      <div class="hcard-ring2"></div>
-      <div class="hcard-mono">RP</div>
-      <div class="hcard-status"><span class="hcard-pip"></span>Open to Work</div>
+    <div class="hav">
+      <div class="hav-r1"></div>
+      <div class="hav-r2"></div>
+      <div class="hav-mono">RP</div>
+      <div class="hav-badge"><span class="hav-pip"></span>Open to Work</div>
     </div>
-    <!-- Name & title -->
     <div class="hcard-name">Rajeshwari Pillai</div>
-    <div class="hcard-title">Backend Engineer · SDE-1</div>
-    <div class="hcard-co">📍 GrayQuest, Navi Mumbai</div>
-    <!-- Divider -->
+    <div class="hcard-sub">Backend Engineer · SDE-1</div>
+    <div class="hcard-loc">📍 GrayQuest · Navi Mumbai</div>
     <div class="hcard-div"></div>
-    <!-- Tech pills -->
-    <div class="hcard-pils-lbl">Core Stack</div>
-    <div class="hcard-pils">
-      <span>Python</span><span>Kafka</span><span>FastAPI</span>
-      <span>Celery</span><span>Redis</span><span>Airflow</span>
-      <span>Prometheus</span><span>Docker</span><span>AWS</span>
+
+    <div class="hcard-visits">
+      <div class="hcard-vnum" id="vcnt">0</div>
+      <div class="hcard-vlbl">Portfolio Visitors</div>
     </div>
-    <!-- Divider -->
     <div class="hcard-div"></div>
-    <!-- Mini metrics -->
-    <div class="hcard-metrics">
-      <div class="hcard-metric"><div class="hcard-mval" data-target="60" data-sfx="%">0%</div><div class="hcard-mlbl">Latency Cut</div></div>
-      <div class="hcard-metric"><div class="hcard-mval" data-target="3" data-sfx="yr">0yr</div><div class="hcard-mlbl">Experience</div></div>
-      <div class="hcard-metric"><div class="hcard-mval" data-target="80" data-sfx="%">0%</div><div class="hcard-mlbl">Ops Saved</div></div>
+
+    <div class="hcard-facts">
+      <div class="hcard-fact"><span class="hf-lbl">Status</span><span class="hf-val" style="color:#4ade80">● Actively Looking</span></div>
+      <div class="hcard-fact"><span class="hf-lbl">Notice Period</span><span class="hf-val">Negotiable</span></div>
+      <div class="hcard-fact"><span class="hf-lbl">Work Mode</span><span class="hf-val">Remote / Hybrid / Onsite</span></div>
+      <div class="hcard-fact"><span class="hf-lbl">Target Level</span><span class="hf-val">SDE-2 · Senior · Staff</span></div>
     </div>
-    <!-- CTA -->
     <a href="https://linkedin.com/in/rajeshwari-pillai" target="_blank" class="hcard-cta">View LinkedIn Profile ↗</a>
   </div>
 </section>
 
 <div class="div"></div>
 
-<!-- ── ABOUT ── -->
+<!-- ABOUT — the story, not a list of facts -->
 <div class="sec" id="about">
   <div class="eyebrow"><span class="enum">01</span><div class="eline"></div><span class="etxt">About</span></div>
-  <h2>Engineered for <em>Impact</em></h2>
+  <h2>The Story <em>So Far</em></h2>
   <div class="about-g">
     <div>
-      <p class="about-p rv">I'm a <strong>Backend Engineer based in Navi Mumbai</strong> with deep expertise in distributed systems, asynchronous processing, and production reliability. I don't just build features — I own systems end‑to‑end.</p>
-      <p class="about-p rv">From stabilizing Kafka consumers handling real‑time payment events, to architecting config‑driven multi‑tenant engines that eliminated deployment dependencies, my work consistently delivers <strong>measurable business outcomes</strong>.</p>
-      <p class="about-p rv">I've established full observability stacks from zero, automated ETL pipelines that freed teams from hours of daily manual work, and brought OCR extraction accuracy from 40% to 90% in production workflows processing thousands of documents monthly.</p>
-      <p class="about-p rv">I operate best at the intersection of technical depth and ownership mindset — comfortable in design reviews, on‑call rotations, and mentoring junior engineers toward confident, independent delivery.</p>
+      <p class="about-p rv">My engineering career started with a simple frustration: watching teams burn hours on things machines should do. At Impactsure that meant building OCR pipelines to auto-process KYC documents and ML classification systems that ran without human involvement — work that quietly freed analysts from repetitive, error-prone review cycles.</p>
+      <p class="about-p rv">At GrayQuest I stepped into senior ownership earlier than my title suggested. I rebuilt the API ingestion path so bulk work happened asynchronously, stabilised a Kafka pipeline that was losing messages under payment traffic load, and built an observability layer that transformed our on-call rotations from reactive firefighting into structured incident management.</p>
+      <p class="about-p rv">What drives me is the compounding effect of well-built systems — where improving reliability in one layer makes the whole product more stable. I'm ready to bring that thinking to a larger, more complex product at SDE-2 or Senior level.</p>
     </div>
-    <div>
-      <div class="acard rv fl"><div class="acard-lbl">Current Role</div><div class="acard-val">Backend Engineer, SDE-1</div><div class="acard-sub">GrayQuest — EdTech / FinTech, Mumbai</div></div>
-      <div class="acard rv fl"><div class="acard-lbl">Career Target</div><div class="acard-val">SDE-2 / Senior Backend</div><div class="acard-sub">Platform · Data Engineering · SRE</div></div>
-      <div class="acard rv fl"><div class="acard-lbl">Education</div><div class="acard-val">MCA — 2023</div><div class="acard-sub">SIES College of Management Studies</div></div>
-      <div class="acard rv fl"><div class="acard-lbl">Location & Availability</div><div class="acard-val">Open to Opportunities</div><div class="acard-sub">Navi Mumbai · Remote & hybrid welcome</div></div>
+    <div class="about-timeline">
+      <div class="atl-item rv fl">
+        <div class="atl-yr">NOV 2024 — PRESENT</div>
+        <div class="atl-role">Backend Engineer, SDE-1</div>
+        <div class="atl-co">GrayQuest · EdTech / FinTech, Mumbai</div>
+      </div>
+      <div class="atl-item rv fl">
+        <div class="atl-yr">JAN 2023 — NOV 2024</div>
+        <div class="atl-role">Associate Software Developer</div>
+        <div class="atl-co">Impactsure Technologies · AI / Document Intelligence</div>
+      </div>
+      <div class="atl-item rv fl">
+        <div class="atl-yr">2021 — 2023</div>
+        <div class="atl-role">MCA</div>
+        <div class="atl-co">SIES College of Management Studies, Mumbai</div>
+      </div>
+      <div class="atl-item rv fl">
+        <div class="atl-yr">2018 — 2021</div>
+        <div class="atl-role">B.Sc. Information Technology</div>
+        <div class="atl-co">KLE Society's College of Science &amp; Commerce</div>
+      </div>
     </div>
   </div>
 </div>
 
 <div class="div"></div>
 
-<!-- ── EXPERIENCE ── -->
+<!-- EXPERIENCE -->
 <div class="sec" id="experience">
   <div class="eyebrow"><span class="enum">02</span><div class="eline"></div><span class="etxt">Experience</span></div>
   <h2>Where I've <em>Built</em></h2>
@@ -551,19 +433,17 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);
       </div>
       <div class="exp-tog">+</div>
     </div>
-    <div class="exp-body">
-      <div class="exp-bi">
-        <ul class="exp-ul">
-          <li>Architected an <strong>async bulk ingestion pipeline</strong> (Celery + Redis) processing 10,000+ records/run outside the API path — cutting latency from 3s → 1s, a <strong>60% improvement</strong></li>
-          <li>Designed a <strong>config‑driven multi‑tenant admission engine</strong> externalizing institution‑specific rules — reducing partner onboarding from 5 days → 1 day with <strong>zero migrations or redeployments</strong></li>
-          <li>Built <strong>production observability from scratch</strong> (Prometheus + Grafana) tracking Kafka lag, task failures, API latency — reducing incident <strong>MTTR by 40%</strong> and enabling proactive SLA breach detection</li>
-          <li>Stabilized Kafka payment event pipeline via consumer concurrency tuning + <strong>Dead Letter Queues</strong> — consumer restarts from multiple/day to <strong>near zero</strong></li>
-          <li>Automated all daily ETL with <strong>Apache Airflow → AWS S3</strong>, replacing 100% of manual jobs and reducing operational effort by <strong>80%</strong></li>
-          <li>On‑call owner, RCA lead, design reviewer; mentored junior engineers through structured code reviews</li>
-        </ul>
-        <div class="tags"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">Kafka</span><span class="tag">Celery</span><span class="tag">Redis</span><span class="tag">Airflow</span><span class="tag">Prometheus</span><span class="tag">Grafana</span><span class="tag">AWS</span><span class="tag">MySQL</span></div>
-      </div>
-    </div>
+    <div class="exp-body"><div class="exp-bi">
+      <ul class="exp-ul">
+        <li>Architected an <strong>async bulk ingestion pipeline</strong> (Celery + Redis) processing 10,000+ records/run outside the API path — endpoint latency 3 s → 1 s, zero timeouts under load</li>
+        <li>Designed a <strong>config-driven multi-tenant admission engine</strong> externalising institution-specific rules — new partners go live in 1 day vs 5, with zero schema migrations or redeployments</li>
+        <li>Built <strong>Prometheus + Grafana observability from scratch</strong>: API latency, Kafka lag, Celery failure rates, with alert thresholds calibrated to actual SLA boundaries — MTTR reduced by 40%</li>
+        <li>Stabilised a Kafka payment event pipeline via consumer concurrency tuning + <strong>Dead Letter Queues</strong> for poison messages — daily restarts reduced to near zero</li>
+        <li>Automated 100% of daily ETL with <strong>Apache Airflow → AWS S3</strong>, replacing all manually-triggered jobs and freeing the team from 80% of repetitive ops work</li>
+        <li>On-call owner, RCA lead, design reviewer; structured code reviews for junior engineers</li>
+      </ul>
+      <div class="tags"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">Kafka</span><span class="tag">Celery</span><span class="tag">Redis</span><span class="tag">Airflow</span><span class="tag">Prometheus</span><span class="tag">Grafana</span><span class="tag">AWS</span><span class="tag">MySQL</span></div>
+    </div></div>
   </div>
 
   <div class="exp-item rv">
@@ -575,105 +455,123 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);
       </div>
       <div class="exp-tog">+</div>
     </div>
-    <div class="exp-body">
-      <div class="exp-bi">
-        <ul class="exp-ul">
-          <li>Built <strong>OCR‑driven document processing</strong> for KYC and sanction letters — accuracy from <strong>40% → 90%</strong>, processing thousands of docs/month</li>
-          <li>Designed <strong>Django REST APIs</strong> for automated document workflows with Q Cluster background processing</li>
-          <li><strong>Containerized all backend services</strong> with Docker, standardizing deployments and reducing environment‑related incidents</li>
-          <li>Built <strong>Pandas ETL pipelines</strong> ingesting unstructured PDF/Excel financial data into structured schemas</li>
-          <li>Contributed to an <strong>ML annual report classification pipeline</strong> — accuracy from <strong>65% → 80%</strong></li>
-        </ul>
-        <div class="tags"><span class="tag">Python</span><span class="tag">Django</span><span class="tag">Docker</span><span class="tag">OCR</span><span class="tag">Pandas</span><span class="tag">MySQL</span><span class="tag">MongoDB</span><span class="tag">Jenkins</span><span class="tag">ML</span></div>
-      </div>
-    </div>
+    <div class="exp-body"><div class="exp-bi">
+      <ul class="exp-ul">
+        <li>Built an <strong>end-to-end OCR pipeline</strong> for KYC documents and sanction letters — extraction accuracy 40% → 90%, thousands of documents processed monthly with a confidence-based human review fallback</li>
+        <li>Designed <strong>Django REST APIs</strong> for automated document review workflows, using Q Cluster for async background processing to avoid blocking the request thread</li>
+        <li>Led <strong>Docker containerisation</strong> of all backend services, eliminating environment-related production incidents and standardising the dev-to-prod deployment path</li>
+        <li>Built <strong>Pandas ETL pipelines</strong> ingesting unstructured PDF/Excel financial data into queryable schemas — eliminated manual reporting cycles entirely</li>
+        <li>Contributed to <strong>ML annual report classification</strong> pipeline — optimised feature engineering and queries, lifting accuracy from 65% → 80%</li>
+        <li>🏆 <strong>Best Performer Award</strong> · July 2023 — recognised for ownership, automation impact, and production reliability improvements</li>
+      </ul>
+      <div class="tags"><span class="tag">Python</span><span class="tag">Django</span><span class="tag">Docker</span><span class="tag">OCR</span><span class="tag">Pandas</span><span class="tag">MySQL</span><span class="tag">MongoDB</span><span class="tag">Jenkins</span><span class="tag">ML</span></div>
+    </div></div>
   </div>
 </div>
 
 <div class="div"></div>
 
-<!-- ── SKILLS ── -->
+<!-- SKILLS -->
 <div class="sec" id="skills">
   <div class="eyebrow"><span class="enum">03</span><div class="eline"></div><span class="etxt">Technical Skills</span></div>
-  <h2>The <em>Stack</em></h2>
+  <h2>The Full <em>Stack</em></h2>
   <div class="skill-grid">
     <div class="skill-row rv fl"><div class="skill-cat"><div class="skill-cat-name">Languages</div></div><div class="skill-pills"><span class="pill">Python</span><span class="pill">SQL</span></div></div>
     <div class="skill-row rv fl"><div class="skill-cat"><div class="skill-cat-name">Frameworks</div></div><div class="skill-pills"><span class="pill">FastAPI</span><span class="pill">Django</span><span class="pill">SQLAlchemy</span></div></div>
-    <div class="skill-row rv fl"><div class="skill-cat"><div class="skill-cat-name">Async & Messaging</div></div><div class="skill-pills"><span class="pill">Apache Kafka</span><span class="pill">Celery</span><span class="pill">Redis</span><span class="pill">Dead Letter Queues</span><span class="pill">Event-Driven Arch.</span></div></div>
-    <div class="skill-row rv fl"><div class="skill-cat"><div class="skill-cat-name">Data & Pipelines</div></div><div class="skill-pills"><span class="pill">Apache Airflow</span><span class="pill">ETL / ELT</span><span class="pill">Pandas</span><span class="pill">AWS S3</span><span class="pill">Batch Processing</span></div></div>
-    <div class="skill-row rv fl"><div class="skill-cat"><div class="skill-cat-name">Databases</div></div><div class="skill-pills"><span class="pill">MySQL</span><span class="pill">MongoDB</span><span class="pill">Query Optimization</span><span class="pill">Schema Design</span></div></div>
-    <div class="skill-row rv fl"><div class="skill-cat"><div class="skill-cat-name">Cloud & DevOps</div></div><div class="skill-pills"><span class="pill">AWS EC2/ECS/S3</span><span class="pill">Docker</span><span class="pill">Jenkins</span><span class="pill">CI/CD</span></div></div>
-    <div class="skill-row rv fl"><div class="skill-cat"><div class="skill-cat-name">Observability</div></div><div class="skill-pills"><span class="pill">Prometheus</span><span class="pill">Grafana</span><span class="pill">Alerting</span><span class="pill">SLA Management</span><span class="pill">Incident Response</span></div></div>
-    <div class="skill-row rv fl"><div class="skill-cat"><div class="skill-cat-name">Leadership</div></div><div class="skill-pills"><span class="pill">System Design</span><span class="pill">Code Review</span><span class="pill">Mentoring</span><span class="pill">On-Call</span></div></div>
+    <div class="skill-row rv fl"><div class="skill-cat"><div class="skill-cat-name">Async & Events</div></div><div class="skill-pills"><span class="pill">Apache Kafka</span><span class="pill">Celery</span><span class="pill">Redis</span><span class="pill">Dead Letter Queues</span><span class="pill">Event-Driven Architecture</span></div></div>
+    <div class="skill-row rv fl"><div class="skill-cat"><div class="skill-cat-name">Data Pipelines</div></div><div class="skill-pills"><span class="pill">Apache Airflow</span><span class="pill">Pandas</span><span class="pill">ETL / ELT</span><span class="pill">Batch Processing</span><span class="pill">AWS S3 Data Lake</span></div></div>
+    <div class="skill-row rv fl"><div class="skill-cat"><div class="skill-cat-name">Databases</div></div><div class="skill-pills"><span class="pill">MySQL</span><span class="pill">MongoDB</span><span class="pill">Query Optimisation</span><span class="pill">Schema Design</span></div></div>
+    <div class="skill-row rv fl"><div class="skill-cat"><div class="skill-cat-name">Cloud & DevOps</div></div><div class="skill-pills"><span class="pill">AWS EC2 / ECS / S3</span><span class="pill">Docker</span><span class="pill">Jenkins</span><span class="pill">CI/CD</span></div></div>
+    <div class="skill-row rv fl"><div class="skill-cat"><div class="skill-cat-name">Observability</div></div><div class="skill-pills"><span class="pill">Prometheus</span><span class="pill">Grafana</span><span class="pill">Alerting Rules</span><span class="pill">SLA Management</span><span class="pill">Incident Response</span><span class="pill">Root Cause Analysis</span></div></div>
+    <div class="skill-row rv fl"><div class="skill-cat"><div class="skill-cat-name">Leadership</div></div><div class="skill-pills"><span class="pill">System Design</span><span class="pill">Code Review</span><span class="pill">On-Call Ownership</span><span class="pill">Technical Mentoring</span></div></div>
   </div>
 </div>
 
 <div class="div"></div>
 
-<!-- ── PROJECTS ── -->
+<!-- PROJECTS — problem-first framing, not repeating experience bullets -->
 <div class="sec" id="projects">
-  <div class="eyebrow"><span class="enum">04</span><div class="eline"></div><span class="etxt">Key Projects</span></div>
-  <h2>Notable <em>Wins</em></h2>
+  <div class="eyebrow"><span class="enum">04</span><div class="eline"></div><span class="etxt">Projects</span></div>
+  <h2>Problems <em>Solved</em></h2>
   <div class="proj-grid">
-    <div class="proj-card rv sc"><div class="proj-num">01 / PIPELINE</div><div class="proj-name">Async Bulk Ingestion Engine</div><div class="proj-desc">Celery + Redis async pipeline processing 10,000+ records/run outside the API request path, eliminating endpoint blocking under load.</div><div class="proj-impact">↓ 60% API latency · 3s → 1s</div><div class="proj-tech"><span>Celery</span><span>Redis</span><span>Python</span><span>FastAPI</span></div></div>
-    <div class="proj-card rv sc"><div class="proj-num">02 / ARCHITECTURE</div><div class="proj-name">Multi-Tenant Admission Engine</div><div class="proj-desc">Config-driven rules engine externalizing institution-specific logic. New partners onboard in one day with no DB migrations or redeployments.</div><div class="proj-impact">↓ 80% onboarding time · 5 days → 1 day</div><div class="proj-tech"><span>Python</span><span>Django</span><span>MySQL</span></div></div>
-    <div class="proj-card rv sc"><div class="proj-num">03 / SRE</div><div class="proj-name">Production Observability Stack</div><div class="proj-desc">Full observability built from zero: Prometheus metrics, Grafana dashboards and alert thresholds for API latency, Kafka lag, and task failures.</div><div class="proj-impact">↓ 40% MTTR · Proactive SLA breach detection</div><div class="proj-tech"><span>Prometheus</span><span>Grafana</span><span>Kafka</span></div></div>
-    <div class="proj-card rv sc"><div class="proj-num">04 / RELIABILITY</div><div class="proj-name">Kafka Payment System Stabilization</div><div class="proj-desc">Tuned consumer group concurrency, improved partition utilization, and introduced DLQs for real-time payment and admission events.</div><div class="proj-impact">Consumer restarts: many/day → near zero</div><div class="proj-tech"><span>Kafka</span><span>DLQ</span><span>Python</span></div></div>
-    <div class="proj-card rv sc"><div class="proj-num">05 / DATA</div><div class="proj-name">Airflow ETL Automation</div><div class="proj-desc">Airflow DAGs transforming transactional datasets and publishing to AWS S3, fully replacing all previously manual daily ETL operations.</div><div class="proj-impact">↓ 80% manual ops · Improved data consistency</div><div class="proj-tech"><span>Airflow</span><span>AWS S3</span><span>Pandas</span></div></div>
-    <div class="proj-card rv sc"><div class="proj-num">06 / AI/ML</div><div class="proj-name">OCR Document Intelligence Pipeline</div><div class="proj-desc">End-to-end OCR system for KYC and sanction letters with ML-enhanced validation, processing thousands of documents monthly.</div><div class="proj-impact">Accuracy: 40% → 90% · Full automation</div><div class="proj-tech"><span>OCR</span><span>Django</span><span>ML</span><span>Python</span></div></div>
-  </div>
-</div>
-
-<div class="div"></div>
-
-<!-- ── AWARDS ── -->
-<div class="sec" id="awards">
-  <div class="eyebrow"><span class="enum">05</span><div class="eline"></div><span class="etxt">Achievements</span></div>
-  <h2>Recognition &amp; <em>Honours</em></h2>
-  <div class="award rv">
-    <div class="award-seal">🏆</div>
-    <div>
-      <div class="award-lbl">Award · July 2023</div>
-      <div class="award-name">Best Performer Award</div>
-      <div class="award-co">Impactsure Technologies</div>
-      <div class="award-desc">Recognized for exemplary backend ownership, automation initiatives, and consistently measurable improvements to production system reliability and throughput.</div>
+    <div class="proj-card rv">
+      <div class="proj-num">01 · LATENCY</div>
+      <div class="proj-name">Async Ingestion Pipeline</div>
+      <div class="proj-what">Partners were hitting timeouts during bulk CSV uploads because every row was being processed synchronously on the API thread. Moved all record processing into Celery workers backed by Redis, so the API returns an acknowledgement immediately while work happens in the background.</div>
+      <div class="proj-out">Endpoint p99 latency: 3 s → 1 s. Zero partner-facing timeouts.</div>
+      <div class="proj-tech"><span>Celery</span><span>Redis</span><span>FastAPI</span><span>Python</span></div>
+    </div>
+    <div class="proj-card rv">
+      <div class="proj-num">02 · RELIABILITY</div>
+      <div class="proj-name">Kafka Pipeline Stabilisation</div>
+      <div class="proj-what">Consumer groups were restarting several times daily during peak payment traffic. Root cause: over-committed consumer threads and no handling for malformed events. Rebalanced partition assignments, introduced Dead Letter Queues, and set Grafana alerts on lag thresholds before they cascade into restarts.</div>
+      <div class="proj-out">Consumer restarts: multiple/day → near zero.</div>
+      <div class="proj-tech"><span>Kafka</span><span>DLQ</span><span>Prometheus</span><span>Grafana</span></div>
+    </div>
+    <div class="proj-card rv">
+      <div class="proj-num">03 · SCALE</div>
+      <div class="proj-name">Config-Driven Tenant Engine</div>
+      <div class="proj-what">Every new institution partner needed a developer to write, review, and deploy schema changes before going live. Moved institution-specific admission rules into a config store so that onboarding is a non-engineering operation — product team fills a form, partner is live the same day.</div>
+      <div class="proj-out">Onboarding time: 5 days → 1 day. Zero per-partner migrations.</div>
+      <div class="proj-tech"><span>Python</span><span>FastAPI</span><span>MySQL</span></div>
+    </div>
+    <div class="proj-card rv">
+      <div class="proj-num">04 · AUTOMATION</div>
+      <div class="proj-name">Airflow ETL Platform</div>
+      <div class="proj-what">The data team ran daily reconciliation scripts manually each morning — a fragile, blocking routine prone to silent failures. Replaced everything with scheduled Airflow DAGs: pull transactional data, apply transformations, validate, and push clean datasets to S3. Failures alert; silence means success.</div>
+      <div class="proj-out">100% of manual daily jobs eliminated. Data pipeline now self-managing.</div>
+      <div class="proj-tech"><span>Airflow</span><span>Pandas</span><span>AWS S3</span><span>Python</span></div>
+    </div>
+    <div class="proj-card rv">
+      <div class="proj-num">05 · AI / OCR</div>
+      <div class="proj-name">Document Intelligence Pipeline</div>
+      <div class="proj-what">KYC verification required analysts to manually read scanned letters and extract fields. Built a preprocessing → OCR → structured extraction → confidence scoring pipeline. Low-confidence extractions get flagged for human review; high-confidence ones flow through automatically.</div>
+      <div class="proj-out">Extraction accuracy: 40% → 90%. Human review load cut dramatically.</div>
+      <div class="proj-tech"><span>OCR</span><span>Django</span><span>Q Cluster</span><span>Python</span></div>
+    </div>
+    <div class="proj-card rv">
+      <div class="proj-num">06 · SRE</div>
+      <div class="proj-name">Zero-to-Observability Stack</div>
+      <div class="proj-what">The team had no production visibility — incidents were discovered by users or via Slack complaints. Instrumented FastAPI with Prometheus counters and histograms, built Grafana dashboards for the key health signals, and configured alert thresholds calibrated to real SLA boundaries rather than arbitrary numbers.</div>
+      <div class="proj-out">MTTR reduced 40%. Incidents now detected before users notice.</div>
+      <div class="proj-tech"><span>Prometheus</span><span>Grafana</span><span>FastAPI</span></div>
     </div>
   </div>
 </div>
 
 <div class="div"></div>
 
-<!-- ── AI CHAT ── -->
+<!-- AI CHAT -->
 <div id="ai">
   <div class="ai-inner">
-    <div class="eyebrow" style="margin-bottom:12px"><span class="enum">06</span><div class="eline"></div><span class="etxt">AI Assistant</span></div>
-    <h2 style="margin-bottom:32px">Ask Anything <em>About Me</em></h2>
+    <div class="eyebrow" style="margin-bottom:10px"><span class="enum">05</span><div class="eline"></div><span class="etxt">AI Assistant</span></div>
+    <h2 style="margin-bottom:26px">Ask Anything <em>About Me</em></h2>
     <div class="ai-grid">
       <div class="ai-side">
-        <p>This AI assistant is trained on my resume and experience. Ask anything — my tech stack, achievements, career goals, or why I'd be a great hire.</p>
+        <p>This AI is trained on my full resume. Ask about specific projects, my approach to system design, what I'm looking for, or anything a hiring manager would want to know.</p>
         <div class="qps">
-          <div class="qps-lbl">Suggested questions</div>
-          <button class="qp" onclick="quickAsk('What is her experience with Kafka and distributed systems?')">Kafka & distributed systems?</button>
-          <button class="qp" onclick="quickAsk('What are her biggest measurable achievements?')">Biggest measurable achievements?</button>
-          <button class="qp" onclick="quickAsk('Why should we hire Rajeshwari?')">Why should we hire her?</button>
-          <button class="qp" onclick="quickAsk('What kind of roles is she targeting?')">What roles is she targeting?</button>
-          <button class="qp" onclick="quickAsk('Is she open to remote work?')">Open to remote work?</button>
-          <button class="qp" onclick="quickAsk('What is her tech stack?')">What is her tech stack?</button>
+          <div class="qps-lbl">Quick questions</div>
+          <button class="qp" onclick="quickAsk('Tell me about her Kafka experience in detail')">Kafka experience?</button>
+          <button class="qp" onclick="quickAsk('What are her biggest measurable achievements?')">Key achievements?</button>
+          <button class="qp" onclick="quickAsk('Why should we hire Rajeshwari over other candidates?')">Why hire her?</button>
+          <button class="qp" onclick="quickAsk('What roles is she targeting and is she open to remote?')">Roles & availability?</button>
+          <button class="qp" onclick="quickAsk('How does she approach system design?')">System design approach?</button>
+          <button class="qp" onclick="quickAsk('Walk me through her complete tech stack')">Full tech stack?</button>
         </div>
       </div>
       <div class="chatbox">
         <div class="chat-top">
           <div class="chat-dot"></div>
-          <div class="chat-lbl">PORTFOLIO AI</div>
+          <div class="chat-lbl">PORTFOLIO AI · POWERED BY CLAUDE</div>
         </div>
         <div class="chat-msgs" id="chatMsgs">
           <div class="cmsg ai">
             <div class="cav ai">RP</div>
-            <div class="cbub">Good day! I'm an AI assistant representing Rajeshwari's professional profile. Ask me anything about her experience, skills, or background — I'm here to help. 👋</div>
+            <div class="cbub">Hi! I'm an AI trained on Rajeshwari's resume and experience. Ask me anything — her projects, tech stack, what she's looking for, or why she'd be a great hire. 👋</div>
           </div>
         </div>
         <div class="chat-foot">
-          <input class="cinp" id="chatInp" placeholder="Ask about her experience, skills, background…" autocomplete="off"/>
+          <input class="cinp" id="chatInp" placeholder="Ask about her background, projects, availability…" autocomplete="off"/>
           <button class="cbtn" id="chatBtn" onclick="sendMsg()">Send →</button>
         </div>
       </div>
@@ -683,17 +581,15 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);
 
 <div class="div"></div>
 
-<!-- ── CONTACT ── -->
+<!-- CONTACT -->
 <div class="sec" id="contact">
-  <div class="eyebrow"><span class="enum">07</span><div class="eline"></div><span class="etxt">Contact</span></div>
+  <div class="eyebrow"><span class="enum">06</span><div class="eline"></div><span class="etxt">Contact</span></div>
   <h2>Let's <em>Connect</em></h2>
   <div class="contact-g">
-
-    <!-- FORM — powered by Web3Forms (email hidden, delivered to inbox) -->
     <div class="form-wrap rv">
       <div class="form-title">Send a Message</div>
-      <div class="form-sub">Fill this out and it goes straight to my inbox — your message is private and my email stays hidden.</div>
-      <!-- ⚠️  SETUP STEP: Go to https://web3forms.com → enter pillairajeshwari910@gmail.com → copy your Access Key → replace YOUR_ACCESS_KEY_HERE below -->
+      <div class="form-sub">Goes straight to my inbox — your message stays private, my email stays hidden.</div>
+      <!-- Go to web3forms.com → enter your email → copy Access Key → paste below -->
       <form id="contactForm">
         <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE"/>
         <input type="hidden" name="subject" value="Portfolio Enquiry — Rajeshwari Pillai"/>
@@ -706,264 +602,173 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);
         <div id="form-msg"></div>
       </form>
     </div>
-
-    <!-- INFO -->
     <div class="cinfo rv fr">
-      <div class="citem">
-        <div class="citem-ico">🔗</div>
-        <div><div class="citem-lbl">LinkedIn</div><div class="citem-val"><a href="https://linkedin.com/in/rajeshwari-pillai" target="_blank" rel="noopener">linkedin.com/in/rajeshwari-pillai ↗</a></div></div>
-      </div>
-      <div class="citem">
-        <div class="citem-ico">📍</div>
-        <div><div class="citem-lbl">Location</div><div class="citem-val">Navi Mumbai, Maharashtra · Open to remote</div></div>
-      </div>
-      <div class="citem">
-        <div class="citem-ico">💼</div>
-        <div><div class="citem-lbl">Role Target</div><div class="citem-val">SDE-2 · Senior Backend · Platform · SRE</div></div>
-      </div>
-      <div class="citem">
-        <div class="citem-ico">👁</div>
-        <div><div class="citem-lbl">Portfolio Visitors</div><div class="citem-val" id="vcnt" style="font-family:var(--D);font-size:22px;font-weight:700;color:var(--gold2)">—</div></div>
-      </div>
+      <div class="citem"><div class="citem-ico">🔗</div><div><div class="citem-lbl">LinkedIn</div><div class="citem-val"><a href="https://linkedin.com/in/rajeshwari-pillai" target="_blank" rel="noopener">linkedin.com/in/rajeshwari-pillai ↗</a></div></div></div>
+      <div class="citem"><div class="citem-ico">📍</div><div><div class="citem-lbl">Location</div><div class="citem-val">Navi Mumbai, Maharashtra</div></div></div>
+      <div class="citem"><div class="citem-ico">🌐</div><div><div class="citem-lbl">Work Mode</div><div class="citem-val">Remote · Hybrid · Onsite — all open</div></div></div>
+      <div class="citem"><div class="citem-ico">⚡</div><div><div class="citem-lbl">Response Time</div><div class="citem-val">Within 24 hours</div></div></div>
     </div>
   </div>
 </div>
 
-<!-- ── FOOTER ── -->
+<!-- FOOTER -->
 <footer>
   <div class="fbrand">Rajeshwari Pillai</div>
-  <div class="fcopy">© 2026 · All rights reserved</div>
-  <div class="fstatus"><div class="fpip"></div>Open to new roles</div>
+  <div class="fcopy">© 2026 · Built with care</div>
+  <div class="fstatus"><div class="fpip"></div>Actively looking</div>
 </footer>
 
 <script>
-// ─── ACCORDION ───
-function toggleExp(hdr){hdr.closest('.exp-item').classList.toggle('open')}
+// ACCORDION
+function toggleExp(h){h.closest('.exp-item').classList.toggle('open')}
 
-// ─── FLOATING BUTTON ───
+// FLOAT BTN
 const fb=document.getElementById('floatli')
-window.addEventListener('scroll',()=>fb.classList.toggle('show',scrollY>400),{passive:true})
+window.addEventListener('scroll',()=>fb.classList.toggle('show',scrollY>350),{passive:true})
 
-// ─── ACTIVE NAV ───
-const secs=[...document.querySelectorAll('section[id],div[id]')].filter(s=>['hero','about','experience','skills','projects','awards','ai','contact'].includes(s.id))
-const navLinks=[...document.querySelectorAll('.nlinks a')]
+// ACTIVE NAV
+const navAs=[...document.querySelectorAll('.nlinks a')]
 const ioNav=new IntersectionObserver(es=>{
   es.forEach(e=>{if(e.isIntersecting){
-    navLinks.forEach(a=>a.classList.remove('active'))
+    navAs.forEach(a=>a.classList.remove('act'))
     const a=document.querySelector(`.nlinks a[href="#${e.target.id}"]`)
-    if(a)a.classList.add('active')
+    if(a)a.classList.add('act')
   }})
-},{threshold:.35})
-secs.forEach(s=>ioNav.observe(s))
+},{threshold:.3})
+document.querySelectorAll('section[id],div[id]').forEach(s=>{
+  if(['hero','about','experience','skills','projects','ai','contact'].includes(s.id))ioNav.observe(s)
+})
 
-// ─── EYEBROW LINE DRAW ───
+// EYEBROW LINES
 const ioLine=new IntersectionObserver(es=>{
   es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('go');ioLine.unobserve(e.target)}})
 },{threshold:.5})
 document.querySelectorAll('.eline').forEach(l=>ioLine.observe(l))
 
-// ─── SCROLL REVEAL ───
+// SCROLL REVEAL
 const ioRv=new IntersectionObserver(es=>{
   es.forEach(e=>{
     if(e.isIntersecting){
-      const siblings=[...e.target.parentNode.children].filter(c=>c.classList.contains('rv'))
-      const idx=Math.max(siblings.indexOf(e.target),0)
-      setTimeout(()=>e.target.classList.add('on'),idx*90)
+      const sibs=[...e.target.parentNode.children].filter(c=>c.classList.contains('rv'))
+      const i=Math.max(sibs.indexOf(e.target),0)
+      setTimeout(()=>e.target.classList.add('on'),i*80)
       ioRv.unobserve(e.target)
     }
   })
-},{threshold:.08,rootMargin:'0px 0px -30px 0px'})
+},{threshold:.07,rootMargin:'0px 0px -24px 0px'})
 document.querySelectorAll('.rv').forEach(el=>ioRv.observe(el))
 
-// ─── COUNT-UP STATS ───
-function countUp(el,target,suffix){
-  let start=null
+// COUNT-UP UTILITY
+function countUp(el,target,suffix,dur){
+  dur=dur||1600;let s=null
   const step=ts=>{
-    if(!start)start=ts
-    const p=Math.min((ts-start)/1400,1)
-    const e=1-Math.pow(1-p,3)
-    el.textContent=Math.floor(e*target)+suffix
+    if(!s)s=ts
+    const p=Math.min((ts-s)/dur,1)
+    const v=1-Math.pow(1-p,3)
+    el.textContent=Math.floor(v*target)+suffix
     if(p<1)requestAnimationFrame(step)
   }
   requestAnimationFrame(step)
 }
-const ioStat=new IntersectionObserver(es=>{
-  es.forEach(e=>{
-    if(e.isIntersecting){
-      e.target.querySelectorAll('.hstatnum').forEach(n=>{
-        countUp(n,+n.dataset.target,n.dataset.suffix)
-      })
-      ioStat.unobserve(e.target)
-    }
-  })
-},{threshold:.4})
-const hs=document.querySelector('.hstats')
-if(hs)ioStat.observe(hs)
 
-// Card mini-metrics count up on load
-setTimeout(()=>{
-  document.querySelectorAll('.hcard-mval').forEach(n=>{
-    countUp(n, +n.dataset.target, n.dataset.sfx)
-  })
-}, 1400)
+// VISITOR COUNTER — increments on every single page load/refresh
+;(()=>{
+  const el=document.getElementById('vcnt')
+  try{
+    let count=parseInt(localStorage.getItem('rp_visits')||'0')+1
+    localStorage.setItem('rp_visits',count)
+    countUp(el,count,'',2000)
+  }catch{el.textContent='1'}
+})()
 
-// ─── CONTACT FORM (Web3Forms) ───
+// CONTACT FORM
 document.getElementById('contactForm').addEventListener('submit',async function(e){
   e.preventDefault()
-  const btn=this.querySelector('button[type=submit]')
-  const msg=document.getElementById('form-msg')
+  const btn=this.querySelector('button[type=submit]'),msg=document.getElementById('form-msg')
   btn.disabled=true;btn.textContent='Sending…'
   msg.style.display='none';msg.className=''
   try{
-    const fd=new FormData(this)
-    const obj=Object.fromEntries(fd)
     const res=await fetch('https://api.web3forms.com/submit',{
-      method:'POST',
-      headers:{'Content-Type':'application/json','Accept':'application/json'},
-      body:JSON.stringify(obj)
+      method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify(Object.fromEntries(new FormData(this)))
     })
-    const data=await res.json()
+    const d=await res.json()
     if(res.status===200){
       msg.textContent='✦ Message sent! Rajeshwari will be in touch soon.'
-      msg.className='ok';msg.style.display='block'
-      this.reset()
-    } else {
-      throw new Error(data.message||'Something went wrong')
-    }
-  } catch(err){
-    msg.textContent='⚠ Could not send — please try LinkedIn instead.'
+      msg.className='ok';msg.style.display='block';this.reset()
+    }else throw new Error(d.message)
+  }catch{
+    msg.textContent='⚠ Could not send — please reach out on LinkedIn.'
     msg.className='err';msg.style.display='block'
   }
   btn.disabled=false;btn.textContent='Send Message →'
 })
 
-// ─── VISITOR COUNTER (localStorage — works everywhere, no external API needed) ───
-;(()=>{
-  const el = document.getElementById('vcnt')
-  try {
-    // Get or init stored count
-    let count = parseInt(localStorage.getItem('rp_visit_count') || '0')
-    // Only increment once per session
-    if (!sessionStorage.getItem('rp_visited')) {
-      count++
-      localStorage.setItem('rp_visit_count', count)
-      sessionStorage.setItem('rp_visited', '1')
-    }
-    // Animate the number counting up
-    let current = 0
-    const target = count
-    const duration = 1800
-    let startTime = null
-    const step = (ts) => {
-      if (!startTime) startTime = ts
-      const progress = Math.min((ts - startTime) / duration, 1)
-      const eased = 1 - Math.pow(1 - progress, 3)
-      current = Math.floor(eased * target)
-      el.textContent = current.toLocaleString() + (current === 1 ? ' visitor' : ' visitors')
-      if (progress < 1) requestAnimationFrame(step)
-    }
-    requestAnimationFrame(step)
-  } catch(e) {
-    el.textContent = '1 visitor'
-  }
-})()
-
-// ─── AI CHAT — Smart local knowledge base (works everywhere) + Claude fallback ───
-const KB = {
-  kafka: `Rajeshwari has deep hands-on Kafka experience at GrayQuest. She stabilized a real-time Kafka event pipeline handling payment and admission events by tuning consumer group concurrency, optimizing partition utilization, and introducing Dead Letter Queues (DLQs). Consumer restarts went from multiple per day to near zero. She also built Prometheus + Grafana dashboards tracking Kafka consumer lag to detect backlogs before they breach SLAs.`,
-  achievements: `Her biggest measurable achievements:\n• 60% API latency reduction (3s → 1s) via async Celery + Redis pipeline\n• 80% reduction in partner onboarding time (5 days → 1 day)\n• 40% reduction in incident MTTR through full observability stack\n• 80% reduction in manual ETL ops via Airflow automation\n• OCR accuracy improved from 40% → 90%\n• ML classification accuracy improved from 65% → 80%\n• Best Performer Award at Impactsure Technologies (July 2023)`,
-  hire: `You should hire Rajeshwari because she combines rare depth with ownership mindset. In just 3 years she has:\n• Independently designed and shipped systems reducing latency by 60%\n• Built observability infrastructure from zero\n• Stabilized Kafka pipelines under production load\n• Automated workflows saving 80% of manual effort\n• Won Best Performer Award and mentored junior engineers\nShe doesn't just complete tickets — she owns outcomes end-to-end.`,
-  roles: `Rajeshwari is targeting SDE-2 or Senior Backend Engineer roles, specifically in:\n• Distributed systems & backend infrastructure\n• Data engineering & ETL pipelines\n• Platform engineering\n• Site Reliability Engineering (SRE)\nShe is based in Navi Mumbai and open to remote and hybrid opportunities.`,
-  remote: `Yes! Rajeshwari is based in Navi Mumbai, Maharashtra and is fully open to remote and hybrid opportunities. She is also open to in-office roles in Mumbai.`,
-  stack: `Rajeshwari's tech stack:\n• Languages: Python, SQL\n• Frameworks: FastAPI, Django, SQLAlchemy\n• Async/Messaging: Apache Kafka, Celery, Redis, DLQ\n• Data/Pipelines: Apache Airflow, Pandas, ETL/ELT, AWS S3\n• Databases: MySQL, MongoDB\n• Cloud/DevOps: AWS (EC2, ECS, S3), Docker, Jenkins, CI/CD\n• Observability: Prometheus, Grafana, Alerting, SLA Management`,
-  experience: `Rajeshwari has 3+ years of backend engineering experience:\n\n1. GrayQuest (Nov 2024–Present) — Backend Engineer SDE-1, EdTech/FinTech\n2. Impactsure Technologies (Jan 2023–Nov 2024) — Associate Software Developer, AI/Document Intelligence\n\nShe has full production ownership experience including on-call rotations, RCA, design reviews, and mentoring.`,
-  education: `Rajeshwari holds a Master of Computer Applications (MCA) from SIES College of Management Studies (2023) and a B.Sc. in Information Technology from KLE Society's College of Science and Commerce (2021).`,
-  contact: `You can connect with Rajeshwari on LinkedIn: linkedin.com/in/rajeshwari-pillai\nOr use the contact form on this page to send her a message directly.`,
-  python: `Python is Rajeshwari's primary language. She uses it for FastAPI and Django backends, Celery async task queues, Pandas ETL pipelines, Apache Airflow DAGs, and OCR/ML pipeline development.`,
-  airflow: `Rajeshwari built and maintained Apache Airflow DAGs at GrayQuest to transform transactional datasets and publish them to AWS S3 for analytics and reconciliation. This fully replaced all previously manual daily ETL jobs and reduced operational effort by 80%.`,
-  docker: `She containerized all backend services at Impactsure Technologies using Docker, standardizing deployments across all environments and measurably reducing environment-related production incidents.`,
-  aws: `Rajeshwari has hands-on AWS experience with EC2, ECS, and S3. She built Airflow ETL pipelines that published data to S3 data lakes and worked with ECS for containerized service deployments.`,
-  observability: `She built a full observability stack from scratch at GrayQuest using Prometheus for metrics collection and Grafana for dashboards and alerting. She tracked API latency, Kafka consumer lag, and task failure rates — reducing MTTR by 40% and enabling proactive SLA breach detection.`,
-  award: `Rajeshwari won the Best Performer Award at Impactsure Technologies in July 2023, recognized for backend ownership, automation initiatives, and measurable production impact.`,
-};
-
-function smartAnswer(q) {
-  const ql = q.toLowerCase();
-  if (/kafka|consumer|partition|dlq|event|message/i.test(ql)) return KB.kafka;
-  if (/achiev|impact|result|number|metric|percent|improv|reduc/i.test(ql)) return KB.achievements;
-  if (/hire|why|recommend|good|fit|standout|best/i.test(ql)) return KB.hire;
-  if (/role|target|looking|position|job|opportunit/i.test(ql)) return KB.roles;
-  if (/remote|hybrid|location|where|relocat|onsite/i.test(ql)) return KB.remote;
-  if (/stack|tech|skill|tool|language|framework|use/i.test(ql)) return KB.stack;
-  if (/experience|work|background|career|history|year/i.test(ql)) return KB.experience;
-  if (/educat|degree|college|study|mca|university/i.test(ql)) return KB.education;
-  if (/contact|reach|email|connect|linkedin/i.test(ql)) return KB.contact;
-  if (/python/i.test(ql)) return KB.python;
-  if (/airflow|etl|pipeline|dag/i.test(ql)) return KB.airflow;
-  if (/docker|container/i.test(ql)) return KB.docker;
-  if (/aws|cloud|s3|ec2|ecs/i.test(ql)) return KB.aws;
-  if (/observ|prometheus|grafana|monitor|alert|mttr/i.test(ql)) return KB.observability;
-  if (/award|performer|recogni/i.test(ql)) return KB.award;
-  return `Great question! Rajeshwari is a Backend Engineer with 3+ years of experience specialising in distributed systems, Kafka pipelines, async architectures, and data engineering. She's achieved a 60% API latency reduction, 40% MTTR improvement, and 80% ops automation at GrayQuest. She's actively looking for SDE-2 or Senior Backend roles. Try asking about her Kafka experience, tech stack, or key achievements for more details!`;
+// AI CHAT
+const KB={
+  kafka:`At GrayQuest, Rajeshwari diagnosed daily Kafka consumer restarts caused by over-committed consumer threads during peak payment traffic. She rebalanced partition assignments, introduced Dead Letter Queues for poison messages, and wired consumer lag metrics into Grafana alerts. Restarts went from multiple per day to near zero. She also owns the on-call rotation for these pipelines.`,
+  achievements:`Key measurable outcomes:\n• API latency 3 s → 1 s (async pipeline)\n• Partner onboarding 5 days → 1 day (config engine)\n• Incident MTTR reduced 40% (observability)\n• 80% reduction in daily manual ETL ops (Airflow)\n• OCR accuracy 40% → 90% (KYC pipeline)\n• ML classification accuracy 65% → 80%\n• 🏆 Best Performer Award — Impactsure, July 2023`,
+  hire:`Three strong reasons:\n1. She owns systems end-to-end — design, build, observability, on-call, and mentoring\n2. She has rare breadth: event streaming, ML pipelines, ETL, SRE, and API design all in 3 years\n3. She's actively looking and available quickly — you can move fast`,
+  roles:`Targeting SDE-2 or Senior Backend Engineer. Preferred domains: distributed systems, data engineering, platform engineering, SRE. Open to remote, hybrid, and onsite. Navi Mumbai based. Notice period negotiable.`,
+  remote:`Fully open to remote, hybrid, and onsite roles. Based in Navi Mumbai. Notice period is negotiable.`,
+  stack:`Languages: Python, SQL\nFrameworks: FastAPI, Django, SQLAlchemy\nAsync/Events: Kafka, Celery, Redis, DLQ, Event-Driven Architecture\nData: Airflow, Pandas, ETL/ELT, AWS S3\nDatabases: MySQL, MongoDB\nCloud/DevOps: AWS EC2/ECS/S3, Docker, Jenkins, CI/CD\nObservability: Prometheus, Grafana, Alerting, SLA management, RCA`,
+  design:`She starts with failure modes: what breaks first, what cascades, and how to detect it before users notice. She favours async decoupling over synchronous coupling, config-over-code for multi-tenant variance, and treats observability as a day-one requirement rather than a later addition.`,
+  experience:`3+ years total.\nGrayQuest (Nov 2024–present): SDE-1, EdTech/FinTech, full production ownership — on-call, design reviews, mentoring.\nImpactsure Technologies (Jan 2023–Nov 2024): Associate Software Developer, AI document intelligence — OCR, Django APIs, ML pipelines, Docker.`,
+  award:`Best Performer Award at Impactsure Technologies, July 2023. Recognised for backend ownership, automation initiatives, and measurable improvements to production reliability.`,
 }
-
-async function callClaude(msg) {
-  // Try Anthropic API (works in Claude.ai artifact viewer)
-  try {
-    const r = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 300,
-        system: `You are an AI assistant on Rajeshwari Pillai's portfolio. She is a Backend Engineer with 3+ years experience. Key facts: 60% API latency reduction, 40% MTTR improvement, 80% ops automation, Kafka/Celery/Airflow/Prometheus/FastAPI/Django/Docker/AWS expert, Best Performer Award 2023, targeting SDE-2 roles, based in Mumbai, open to remote. Be concise, under 100 words.`,
-        messages: [{ role: 'user', content: msg }]
-      })
-    });
-    const d = await r.json();
-    if (d.content?.[0]?.text) return d.content[0].text;
-  } catch(e) {}
-  // Fallback: smart local answer (works on GitHub Pages)
-  return smartAnswer(msg);
+function smartAnswer(q){
+  const l=q.toLowerCase()
+  if(/kafka|consumer|dlq|event|message|stream/i.test(l))return KB.kafka
+  if(/achiev|result|metric|number|improv|reduc|impact|percent|win/i.test(l))return KB.achievements
+  if(/hire|why|recommend|fit|standout|best|over other/i.test(l))return KB.hire
+  if(/role|target|look|position|job|opportunit|level|seniority/i.test(l))return KB.roles
+  if(/remote|hybrid|locat|where|onsite|relocat|notice|period|availab/i.test(l))return KB.remote
+  if(/stack|tech|skill|tool|language|framework/i.test(l))return KB.stack
+  if(/design|architect|approach|think|philosophy|principle/i.test(l))return KB.design
+  if(/experience|work|background|career|history|year/i.test(l))return KB.experience
+  if(/award|performer|recogni|prize/i.test(l))return KB.award
+  return `Rajeshwari is a Backend Engineer with 3+ years in distributed systems, Kafka, async pipelines, and production reliability. She's actively looking for SDE-2 or Senior roles and open to remote/hybrid. Try asking about her Kafka work, system design approach, or key achievements!`
 }
-
-
+async function callClaude(msg){
+  try{
+    const r=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:300,
+        system:`You are an AI on Rajeshwari Pillai's portfolio. She is a Backend Engineer, 3+ years, expert in Kafka, Celery, Airflow, FastAPI, Prometheus/Grafana, Docker, AWS. Best Performer Award 2023. Targeting SDE-2/Senior. Navi Mumbai, open to remote. Be concise, under 100 words.`,
+        messages:[{role:'user',content:msg}]})
+    })
+    const d=await r.json()
+    if(d.content?.[0]?.text)return d.content[0].text
+  }catch{}
+  return smartAnswer(msg)
+}
 function addMsg(text,role){
-  const c=document.getElementById('chatMsgs')
-  const d=document.createElement('div')
+  const c=document.getElementById('chatMsgs'),d=document.createElement('div')
   d.className=`cmsg ${role==='user'?'u':'ai'}`
   d.innerHTML=`<div class="cav ${role==='user'?'me':'ai'}">${role==='user'?'YOU':'RP'}</div><div class="cbub">${text.replace(/\n/g,'<br/>')}</div>`
   c.appendChild(d);c.scrollTop=c.scrollHeight
 }
 function showTyping(){
-  const c=document.getElementById('chatMsgs')
-  const d=document.createElement('div');d.className='cmsg ai';d.id='typing'
+  const c=document.getElementById('chatMsgs'),d=document.createElement('div')
+  d.className='cmsg ai';d.id='typing'
   d.innerHTML=`<div class="cav ai">RP</div><div class="cbub"><div class="typing"><div class="td"></div><div class="td"></div><div class="td"></div></div></div>`
   c.appendChild(d);c.scrollTop=c.scrollHeight
 }
 function removeTyping(){const t=document.getElementById('typing');if(t)t.remove()}
-
 async function sendMsg(){
-  const inp=document.getElementById('chatInp')
-  const btn=document.getElementById('chatBtn')
+  const inp=document.getElementById('chatInp'),btn=document.getElementById('chatBtn')
   const msg=inp.value.trim();if(!msg)return
   inp.value='';btn.disabled=true
   addMsg(msg,'user');showTyping()
-  try{
-    const reply=await callClaude(msg)
-    removeTyping();addMsg(reply,'ai')
-  }catch{
-    removeTyping();addMsg(smartAnswer(msg),'ai')
-  }
+  try{const r=await callClaude(msg);removeTyping();addMsg(r,'ai')}
+  catch{removeTyping();addMsg(smartAnswer(msg),'ai')}
   btn.disabled=false;inp.focus()
 }
-
 function quickAsk(q){
   document.getElementById('chatInp').value=q
   document.getElementById('ai').scrollIntoView({behavior:'smooth'})
-  setTimeout(sendMsg,500)
+  setTimeout(sendMsg,600)
 }
-
 document.getElementById('chatInp').addEventListener('keydown',e=>{if(e.key==='Enter')sendMsg()})
 </script>
 </body>
